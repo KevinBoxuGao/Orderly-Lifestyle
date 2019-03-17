@@ -1,0 +1,42 @@
+body {
+  font-family: Open Sans, sans-serif;
+  font-weight: 400;
+  color: black;
+}
+
+p {
+  font-family: Open Sans, sans-serif;
+  margin-bottom: 1.25em;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  color: black;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 1.563em;
+}
+
+h5 {
+  font-size: 1.25em;
+}
+
+.accessibility {
+  position: absolute;
+  right: 200px;
+  top: 118px;
+}

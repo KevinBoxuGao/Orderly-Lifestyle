@@ -1,0 +1,13 @@
+@import "../base/all";
+
+.add_task {
+    .button {
+        .fa-plus{
+            color: $primary-color;
+            font-size: 24px;
+        }
+        h2 {
+            color: $primary-color;
+        }
+    }
+}
