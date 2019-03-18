@@ -40,7 +40,6 @@ h5 {
   background: #1D69C4;
   height: 36px;
   font-size: 24px;
-  border: none;
   margin: 0px 8px;
 }
 
@@ -49,9 +48,10 @@ h5 {
 }
 
 .accessibility button:hover {
-  background: #247EE9;
+  background: white;
+  box-shadow: 0 0 0 2px white;
 }
 
 .accessibility button:hover i {
-  color: #C4C4C4;
+  color: #1D69C4;
 }
