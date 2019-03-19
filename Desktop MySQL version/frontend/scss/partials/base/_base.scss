@@ -1,9 +1,24 @@
-@import "colors";
+* {
+	padding: 0;
+    margin: 0;
+    transition: 0.2s;
+}
 
-$primary-font: Lato, sans-serif;
-$secondary-font: Open Sans, sans-serif;
+html, body {
+    height: 100%;
+    width: 100%;
+}
 
+html {
+    scroll-behavior: smooth;
+}
 
+button {
+    background: none;
+    border: none;
+}
+
+//fonts
 body {
     font-family: $secondary-font;
     font-weight: 400;
