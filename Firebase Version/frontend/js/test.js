@@ -1,1 +1,2 @@
-javascript:alert("hello world");
+//javascript:alert("hello world");
+console.log('hello from Node.js')
