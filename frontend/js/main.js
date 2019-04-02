@@ -22,12 +22,12 @@ function time() {
         hour -= 12;
     }
 
+    minute = checkTime(minute);
+
     date[0] = weekday[d.getDay()]
     date[1] = month[d.getMonth()] + " " + d.getDate();
     date[2] = d.getFullYear();
     date[3] = hour + ":" + minute +  " " + z;
-
-    minute = checkTime(minute);
 
     return date;
 
@@ -42,6 +42,6 @@ $(function(){
     $(".date").html(time().join(", "));
 });
 
-function navbar() {
+function navbarPopUp() {
 
 }
