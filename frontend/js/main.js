@@ -8,13 +8,33 @@ function time() {
     var d = new Date();
     var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var date = [4];
 
-    var date = [3];
-    date[0] = weekday[d.getDay()];
-    date[1] = d.getDate() + " " + month[d.getMonth()];
+    var hour = d.getHours();
+    var minute = d.getMinutes();
+    var z = "am"
+
+    if (hour >= 12) {
+        z = "pm";
+    }
+
+    if (hour > 12) {
+        hour -= 12;
+    }
+
+    date[0] = weekday[d.getDay()]
+    date[1] = month[d.getMonth()] + " " + d.getDate();
     date[2] = d.getFullYear();
+    date[3] = hour + ":" + minute +  " " + z;
+
+    minute = checkTime(minute);
 
     return date;
+
+    function checkTime(i) {
+        if (i < 10) { i = "0" + i };
+        return i;
+    }
 }
 
 $(function(){
@@ -22,4 +42,6 @@ $(function(){
     $(".date").html(time().join(", "));
 });
 
+function navbar() {
 
+}
