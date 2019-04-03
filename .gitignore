@@ -1,8 +1,8 @@
 #python libraries
-.venv
+venv
+backend/AccountServiceKey.json
 .vscode
-backend/ServiceAccountKey.json
-package-lock.json
+
 
 # Logs
 logs
