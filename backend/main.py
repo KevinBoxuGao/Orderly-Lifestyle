@@ -2,7 +2,7 @@ import pyrebase
 
 config = {
     "authDomain": "orderly-life.firebaseapp.com",
-    "apiKey": "AIzaSyAB5gvYSeK8U4KSKlBcPRADDVyWi4dLsMg",
+    "apiKey": "",
     "databaseURL": "https://orderly-life.firebaseio.com",
     "projectId": "orderly-life",
     "storageBucket": "orderly-life.appspot.com",
