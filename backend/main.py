@@ -1,27 +1,35 @@
-import pyrebase
+import firebase_admin
+from firebase_admin import credentials, firestore
+import json 
+import flask
 
-config = {
-    "authDomain": "orderly-life.firebaseapp.com",
-    "apiKey": "",
-    "databaseURL": "https://orderly-life.firebaseio.com",
-    "projectId": "orderly-life",
-    "storageBucket": "orderly-life.appspot.com",
-    "serviceAccount": "backend/AccountServiceKey.json"
-}
+cred = credentials.Certificate('backend/AccountServiceKey.json')
+default_app = firebase_admin.initialize_app(cred)
+db = firestore.client()
 
-firebase = pyrebase.initialize_app(config)
+def add_task(user, task, date, location, notes):
+    doc_ref = db.collection('users').document(user).collection('tasks').document(task)
+    doc_ref.set({
+        'date': date,
+        'location': location,
+        'notes': notes,
+    })   
 
-auth = firebase.auth()
-user = auth.sign_in_with_email_and_password("kevingao2003@gmail.com", "Gaoww8922")
+def complete_task(user, task):
+    doc_ref = db.collection('users').document(user).collection('tasks').document(task)
+    doc_ref.delete()
 
-info = auth.get_account_info(user['idToken'])
-#print(info)
+def return_tasks(user):
+    tasks = []
+    try:
+        doc_ref = db.collection('users').document(user).collection('tasks')
+        docs = doc_ref.list_documents()
+        for i in docs:
+            tasks.append(i.id)
 
-db = firebase.database()
+    except google.cloud.exceptions.NotFound:
+        print('doc not found')
 
-data = {
-    "name": "Mortimer 'Morty' Smith"
-}
+    return tasks
 
-results = db.child("users").set(data)
 
