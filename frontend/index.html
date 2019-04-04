@@ -17,16 +17,21 @@
     </head>
 
     <body>
+
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">Extra Details</a>
+        </div>
+
         <div class="container">
-            
             <div class="header">
                 <h1 class="greeting">Good Morning, What Will Your Day Look Like?</h1>
                 <h2 class="date"></h2>  
-                <div class="accessibility">
+                <div id="buttons" class="accessibility">
                     <button class="settings"><i class="fas fa-cog"></i></button>
-                    <button class="menu"><i class="fas fa-ellipsis-h"></i></button>
+                    <button class="menu" onclick="openNav()"><i class="fas fa-ellipsis-h"></i></button>
                 </div>
-            </div>
+            </div> 
 
             <div class="tasks">
                 <div class="task">
@@ -54,4 +59,3 @@
         </div>
     </body>
 </html>
-    

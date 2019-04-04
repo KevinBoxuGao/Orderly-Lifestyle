@@ -42,6 +42,12 @@ $(function(){
     $(".date").html(time().join(", "));
 });
 
-function navbarPopUp() {
+function openNav() {
+    document.getElementById("mySidenav").style.width = "200px";
+    document.getElementById("buttons").style.right = "210px";
+}
 
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("buttons").style.right = "20px";
 }
