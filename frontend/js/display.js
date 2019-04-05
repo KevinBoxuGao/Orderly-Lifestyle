@@ -40,8 +40,6 @@ function time() {
 $(function(){
     $(".greeting").html(greeting());
     $(".date").html(time().join(", "));
+    
 });
 
-function navbarPopUp() {
-
-}
