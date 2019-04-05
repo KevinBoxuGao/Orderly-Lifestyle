@@ -42,6 +42,3 @@ $(function(){
     $(".date").html(time().join(", "));
 });
 
-function navbarPopUp() {
-
-}
