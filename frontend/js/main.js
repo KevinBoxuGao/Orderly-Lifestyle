@@ -1,5 +1,5 @@
 function greeting() {
-    var greetings = ["Good Morning, What Will Your Day Look Like?", "Feeling Tired? Don't Stop Now.", "Today Is A New Chance, Use It."];
+    var greetings = ["Hello, What Will Your Day Look Like?", "Feeling Tired? Don't Stop Now.", "Today Is A New Chance, Use It."];
     greeting = greetings[Math.floor(Math.random() * greetings.length)];
     return greeting;
 }

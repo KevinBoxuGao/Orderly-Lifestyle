@@ -114,48 +114,60 @@ h5 {
   color: #1D69C4;
 }
 
-.task {
-  width: 99.5%;
+.check {
+  position: absolute;
+  margin-left: 16px;
+  margin-top: 41px;
+}
+
+.element {
+  width: 98.5%;
   margin: 0.25%;
+  border: 10px solid rgb(183, 225, 253);
+  border-radius: 20px;
+}
+
+.task {
+  width: 94.5%;
+  margin: 0.25%;
+  margin-left: 5%;
   height: 104px;
   border: 1px solid #C4C4C4;
   box-sizing: border-box;
   border-radius: 20px;
 }
+
+.task:hover {
+  border: 3px solid black;
+}
+
 .task .content {
   position: relative;
-  left: 24px;
-  top: 40px;
+  left: 5px;
+  top: 50%;
 }
+
 .task .content .button {
   display: inline;
 }
-.task .content .button .check-box {
+
+.check-box {
   height: 25px;
   width: 25px;
   border: 1px solid black;
+  border-radius: 5px;
 }
-.task .content .name {
-  display: inline;
-  margin-left: 16px;
+
+.check-box:hover {
+  border: 2px solid #7c7c7c;
+}
+
+.task .content h2 {
   position: absolute;
-  left: 64px;
+  display: inline;
+  left: 7%;
   top: 50%;
   transform: translate(-50%, -50%);
-}
-
-.task .content .button .menu {
-  display: inline;
-  position: absolute;
-  color: white;
-  background: #1D69C4;
-  font-size: 24px;
-  height: 36px;
-  left: 960px;
-}
-
-.task .content .button .menu i {
-  padding: 0px 8px;
 }
 
 .task .content .button .menu i:hover {
@@ -181,11 +193,13 @@ h5 {
   color: white;
 }
 .header .greeting {
+  padding-top: 40px;
   position: absolute;
   left: 32px;
   top: 57px;
 }
 .header .date {
+  padding-top: 40px;
   position: absolute;
   left: 32px;
   top: 108px;
@@ -204,23 +218,24 @@ h5 {
   z-index: 1;
   top: 0;
   right: 0;
-  background-color: #111;
+  background-color: white;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
+  color: black;
 }
 
-.sidenav a, p {
+.sidenav a, .sidenav p {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
   display: block;
   transition: 0.3s;
+  color: black;
 }
 
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: #7c7c7c;
 }
 
 .sidenav .closebtn {
@@ -258,4 +273,8 @@ h5 {
 .navbar a:hover {
   color: blue;
   background-color: white;
+}
+
+.navbar p {
+  padding: 10px;
 }

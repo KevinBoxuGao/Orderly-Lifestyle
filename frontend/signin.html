@@ -20,15 +20,15 @@
 
 <body>
 
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <p>Extra Details</p>
-    </div>
-    
     <div class="container">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <p>Extra Details</p>
+        </div>
+
         <div class="navbar">
             <p style="float: left">To-Do-List</p>
-            <a href="index.html">Login/Sign-Up</a>
+            <a href="index.html">Login/Sign Up</a>
         </div>
 
         <div class="header">
@@ -40,30 +40,34 @@
         <center>
             <h1 style="padding: 20px;">Try It Below:</h1>
         </center>
-
+        
         <div class="tasks">
-            <div class="task">
-                <div class="content">
+            <div class="element">
+                <div class="check">
                     <button class="button">
                         <div class="check-box"></div>
                     </button>
-                    <h2 class="name">Galois</h2>
-                    <div class="button">
-                        <button id="buttons" class="menu" onclick="openNav()"><i class="fas fa-ellipsis-h"></i></button>
+                </div>
+                <div class="task" onclick="openNav()">
+                    <div class="content">
+                        <h2 class="name">Galois</h2>
                     </div>
                 </div>
             </div>
-            <div class="task">
-                <div class="content">
+        
+            <div class="element">
+                <div class="check">
                     <button class="button">
                         <div class="check-box"></div>
                     </button>
-                    <h2 class="name">Euclid</h2>
-                    <div class="button">
-                        <button id="buttons" class="menu" onclick="openNav()"><i class="fas fa-ellipsis-h"></i></button>
+                </div>
+                <div class="task" onclick="openNav()">
+                    <div class="content">
+                        <h2 class="name">Euclid</h2>
                     </div>
                 </div>
             </div>
+        
             <div class="task add-task">
                 <button class="button">
                     <i class="fas fa-plus"></i>
@@ -71,7 +75,6 @@
                 </button>
             </div>
         </div>
-
     </div>
 </body>
 
