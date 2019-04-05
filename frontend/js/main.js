@@ -43,8 +43,8 @@ $(function(){
 });
 
 function openNav() {
-    document.getElementById("mySidenav").style.width = "200px";
-    document.getElementById("buttons").style.right = "210px";
+    document.getElementById("mySidenav").style.width = "230px";
+    document.getElementById("buttons").style.right = "240px";
 }
 
 function closeNav() {
