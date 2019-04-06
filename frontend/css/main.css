@@ -123,12 +123,10 @@ h5 {
 .element {
   width: 98.5%;
   margin: 0.25%;
-  border: 10px solid rgb(183, 225, 253);
-  border-radius: 20px;
 }
 
 .task {
-  width: 94.5%;
+  width: 93.5%;
   margin: 0.25%;
   margin-left: 5%;
   height: 104px;
