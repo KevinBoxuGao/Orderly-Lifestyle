@@ -1,5 +1,5 @@
 $(function(){
-  var backendHostUrl = "localhost:8081";
+  var backendHostUrl = "http://localhost:8081";
   
   //login
   var userIdToken = null;
@@ -35,29 +35,37 @@ $(function(){
 
   //get backend data
   function fetchTasks() {
-    console.log('yes');
     $.ajax(backendHostUrl + '/user', { 
       /* Set header for the XMLHttpRequest to get data from the web server
       associated with userIdToken */
       headers: {
         'Authorization': 'Bearer ' + userIdToken,
+        'Access-Control-Allow-Origin': '*'
       }
     }).then(function(data){
-      console.log('yues');
-      console.log(data); //testing purposes
-
+      console.log(data);
       $('.tasks').empty();
+      
       data.forEach(function(task){
         $('.tasks').append(
           $('<div/>', {'class': 'task'}).append(
             $('<div/>', {'class': 'content'}).append(
-              $('<button/>', {text: task.message})
-              .append($('<h2/>', {text: task.message}))
+              $('<button/>', {'class': 'button'}).append($('<div/>', {'class': 'check-box'})),
+              $('<h2/>', {'class':'name'}).text(task)
             )
           )
         )
       }); 
+      $('.tasks').append(
+        $('<div/>', {'class': 'task add-task'}).append(
+          $('<button/>', {'class': 'button'}).append(
+            $('<i/>', {'class': 'fas fa-plus'}),
+            $('<h2/>').text('Add Task')
+          )
+        )
+      );
 
+              
     });
   }
 
