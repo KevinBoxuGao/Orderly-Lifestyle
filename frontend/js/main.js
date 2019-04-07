@@ -58,7 +58,7 @@ function openNav() {
     var h2 = document.createElement("H2");
     var text3 = document.createTextNode("Add Notes");
     var skipLine = document.createElement("BR")
-    var input = document.createElement("INPUT");
+    var input = document.createElement("TEXTAREA");
     var text4 = document.createTextNode("Save")
     var submit = document.createElement("BUTTON");
 
@@ -79,6 +79,8 @@ function openNav() {
     div3.appendChild(h2);
     div3.appendChild(skipLine);
     input.setAttribute("placeholder", "Notes");
+    input.setAttribute("rows", "4");
+    input.setAttribute("cols", "30");
     div3.appendChild(input);
     submit.appendChild(text4);
     div3.appendChild(submit);
@@ -125,7 +127,7 @@ function openNav2() {
     var h2 = document.createElement("H2");
     var text3 = document.createTextNode("Add Notes");
     var skipLine = document.createElement("BR")
-    var input = document.createElement("INPUT");
+    var input = document.createElement("TEXTAREA");
     var text4 = document.createTextNode("Save")
     var submit = document.createElement("BUTTON");
 
@@ -146,6 +148,8 @@ function openNav2() {
     div3.appendChild(h2);
     div3.appendChild(skipLine);
     input.setAttribute("placeholder", "Notes");
+    input.setAttribute("rows", "4");
+    input.setAttribute("cols", "30");
     div3.appendChild(input);
     submit.appendChild(text4);
     div3.appendChild(submit);

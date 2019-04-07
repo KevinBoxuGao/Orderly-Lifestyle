@@ -140,18 +140,19 @@ h5 {
   margin-bottom: 20px;
   border: none;
   margin-top: 10px;
+  white-space: normal;
 }
 
 .addition .save {
   margin-top: 40px;
   padding: 5px;
-  border: none;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .addition .save:hover {
   border-color: white;
   background-color: white;
-  border-radius: 10px;
 }
 
 .accessibility button {
@@ -345,22 +346,24 @@ h5 {
   text-align: center;
 }
 
-.sidenav #input input {
+.sidenav #input textarea {
   width: 60%;
   padding: 5px;
-  margin-left: 5%;
+  margin-left: 15%;
   border: none;
+  white-space: normal;
 }
 
 .sidenav #input button {
-  margin-left: 8%;
+  margin-left: 40%;
   padding: 5px;
-  border: none;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .sidenav #input button:hover {
-  background-color: rgb(240, 240, 240);
-  border-radius: 10px;
+  border-color: rgb(206, 206, 206);
+  background-color: rgb(206, 206, 206);
 }
 
 @media screen and (max-height: 450px) {
