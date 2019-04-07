@@ -1,82 +1,93 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>To-Do-List</title>
-        
-        <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="js/main.js"></script>
+    <title>To-Do-List</title>
 
-        
-    </head>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/eric.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
 
-    <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
 
-        <div class="container">
-            <div id="mySidenav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <p>Extra Details</p>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        </div>
+
+        <div class="header">
+            <h1 class="greeting"></h1>
+            <h2 class="date"></h2>
+            <div id="buttons" class="accessibility">
+                <button class="settings" onclick="signOut()"><i class="fas fa-cog"></i></button>
             </div>
+        </div>
 
-            <div id="mySidenav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <p>Extra Details</p>
-            </div>
-
-            <div class="navbar">
-                <p style="float: left">To-Do-List</p>
-                <a href="signin.html">Sign Out</a>
-            </div>
-
-            <div class="header">
-                <h1 class="greeting">Good Morning, What Will Your Day Look Like?</h1>
-                <h2 class="date"></h2>  
-                <div id="buttons" class="accessibility">
-                    <button class="settings"><i class="fas fa-cog"></i></button>
-                </div>
-            </div> 
-
-            <div class="tasks">
-                <div class="element">
-                    <div class="check">
-                        <button class="button">
-                            <div class="check-box"></div>
-                        </button>
-                    </div>
-                    <div class="task" onclick="openNav()">
-                        <div class="content">
-                            <h2 class="name">Galois</h2>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="element">
-                    <div class="check">
-                        <button class="button">
-                            <div class="check-box"></div>
-                        </button>
-                    </div>
-                    <div class="task" onclick="openNav()">
-                        <div class="content">
-                            <h2 class="name">Euclid</h2> 
-                        </div>
-                    </div>
-                </div>
-
-                <div class="task add-task">
+        <div class="tasks">
+            <div class="element">
+                <div class="check">
                     <button class="button">
-                        <i class="fas fa-plus"></i>
-                        <h2>Add Task</h2>
+                        <input type="checkbox" class="check-box">
                     </button>
                 </div>
+                <div class="task" onclick="openNav()">
+                    <div class="content">
+                        <h2 class="name">Galois</h2>
+                    </div>
+                </div>
             </div>
-       
+
+            <div class="element">
+                <div class="check">
+                    <button class="button">
+                        <input type="checkbox" class="check-box">
+                    </button>
+                </div>
+                <div class="task" onclick="openNav2()">
+                    <div class="content">
+                        <h2 class="name">Euclid</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="task add-task" onclick="on()">
+                <button class="button">
+                    <i class="fas fa-plus"></i>
+                    <h2>Add Task</h2>
+                </button>
+            </div>
         </div>
-    </body>
+
+    </div>
+
+    <div id="overlay">
+        <div class="addition">
+            <a href="javascript:void(0)" class="closebtn" onclick="off()">&times;</a>
+            <h1>Name:</h1>
+            <input placeholder="Name">
+            <br>
+            <h1>Time:</h1>
+            <input placeholder="Time">
+            <br>
+            <h1>Location:</h1>
+            <input placeholder="Location">
+            <br>
+            <h1>Extra Notes:</h1>
+            <input placeholder="Notes">
+            <br>
+            <button class="save" onclick="off()">Save Changes</button>
+        </div>
+    </div>
+
+</body>
+
 </html>
