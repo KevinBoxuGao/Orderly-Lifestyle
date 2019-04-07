@@ -8,7 +8,7 @@
 
     <title>To-Do-List</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/eric.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
         crossorigin="anonymous">
 
@@ -23,11 +23,12 @@
     <div class="container">
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <p>Extra Details</p>
+            <h1 id="titles"></h1>
+            <p id="details"></p>
         </div>
 
         <div class="navbar">
-            <p style="float: left">To-Do-List</p>
+            <p style="float: left">Ready-To-List</p>
             <a href="index.html">Login/Sign Up</a>
         </div>
 
@@ -36,45 +37,7 @@
                 <h1 style="padding-top: 60px">To-Do-List. Better Than Ever.</h1>
             </center>
         </div>
-        
-        <center>
-            <h1 style="padding: 20px;">Try It Below:</h1>
-        </center>
-        
-        <div class="tasks">
-            <div class="element">
-                <div class="check">
-                    <button class="button">
-                        <div class="check-box"></div>
-                    </button>
-                </div>
-                <div class="task" onclick="openNav()">
-                    <div class="content">
-                        <h2 class="name">Galois</h2>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="element">
-                <div class="check">
-                    <button class="button">
-                        <div class="check-box"></div>
-                    </button>
-                </div>
-                <div class="task" onclick="openNav()">
-                    <div class="content">
-                        <h2 class="name">Euclid</h2>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="task add-task">
-                <button class="button">
-                    <i class="fas fa-plus"></i>
-                    <h2>Add Task</h2>
-                </button>
-            </div>
-        </div>
+
     </div>
 </body>
 

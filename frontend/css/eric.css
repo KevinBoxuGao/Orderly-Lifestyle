@@ -96,6 +96,54 @@ h5 {
   display: inline;
 }
 
+#overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(0,0,0,0.5);
+  opacity: 1;
+  transition: opacity 500ms;
+  display: none;
+  z-index: 2;
+}
+
+.addition {
+  position: absolute;
+  width: 70%;
+  height: 80%;
+  margin-top: 3%;
+  padding: 30px;
+  margin-left: 15%;
+  background-color: white;
+  outline: 10px solid rgb(59, 59, 245);
+  outline-offset: -10px;
+}
+
+.addition .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+}
+
+.addition input {
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.addition .save {
+  margin-top: 50px;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+.addition .save:hover {
+  border-color: black;
+}
+
 .accessibility button {
   color: white;
   background: #1D69C4;
@@ -233,16 +281,28 @@ h5 {
   transition: 0.5s;
   padding-top: 60px;
   color: black;
-  outline: 5px solid black;
-  outline-offset: -10px;
+  outline: 5px solid rgb(59, 59, 245);
+  outline-offset: -8px;
 }
 
-.sidenav a, .sidenav h1 {
-  padding: 8px 8px 8px 32px;
+.sidenav a {
+  padding: 8px 32px;
   text-decoration: none;
   font-size: 25px;
   display: block;
   color: black;
+  font-weight: bold;
+  text-align: center;
+}
+
+.sidenav a:hover {
+  color: #7c7c7c;
+}
+
+.sidenav h1 {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .sidenav p {
@@ -250,8 +310,12 @@ h5 {
   font-size: 15px;
 }
 
-.sidenav a:hover {
-  color: #7c7c7c;
+.sidenav div {
+  background-color: rgb(202, 202, 202);
+  padding: 10px;
+  margin: 10px 0px;
+  width: 86%;
+  margin-left: 3%;
 }
 
 .sidenav .closebtn {
@@ -264,10 +328,24 @@ h5 {
 
 .sidenav #input h2 {
   font-weight: bold;
+  text-align: center;
+}
+
+.sidenav #input input {
+  width: 60%;
+  padding: 5px;
+  margin-left: 5%;
 }
 
 .sidenav #input button {
-  margin-left: 10px;
+  margin-left: 8%;
+  padding: 2px;
+  border: 1px solid rgb(97, 97, 97);
+  border-radius: 10px;
+}
+
+.sidenav #input button:hover {
+  border: 1px solid black;
 }
 
 @media screen and (max-height: 450px) {
