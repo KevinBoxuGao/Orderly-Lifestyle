@@ -11,6 +11,8 @@ $(function(){
 
         user.getIdToken().then(function(idToken) {
           userIdToken = idToken;
+          console.log(userIdToken) //test
+          console.log(welcomeName) //test
           fetchTasks();
         });
 
@@ -33,17 +35,16 @@ $(function(){
 
   //get backend data
   function fetchTasks() {
-    $.ajax({
-      url: backendHostUrl +'/users',
-      crossOrigin: true,
+    console.log('yes');
+    $.ajax(backendHostUrl + '/user', { 
       /* Set header for the XMLHttpRequest to get data from the web server
       associated with userIdToken */
       headers: {
         'Authorization': 'Bearer ' + userIdToken,
-        'Access-Control-Allow-Origin': '*'
       }
     }).then(function(data){
-      console.log(date);
+      console.log('yues');
+      console.log(data); //testing purposes
 
       $('.tasks').empty();
       data.forEach(function(task){
@@ -55,7 +56,8 @@ $(function(){
             )
           )
         )
-      });  
+      }); 
+
     });
   }
 
