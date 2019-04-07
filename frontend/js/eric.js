@@ -55,14 +55,14 @@ function openNav() {
     var text2 = document.createTextNode("Location: SJAM");
 
     var p2 = document.createElement("P");
-    var Text2 = document.createTextNode("Time: April 10 at 8:30 am")
+    var Text2 = document.createTextNode("Time: April 10 at 8:30 am");
     //input
     var div3 = document.createElement("DIV");
     var h2 = document.createElement("H2");
     var text3 = document.createTextNode("Add Notes");
-    var skipLine = document.createElement("BR")
+    var skipLine = document.createElement("BR");
     var input = document.createElement("TEXTAREA");
-    var text4 = document.createTextNode("Save")
+    var text4 = document.createTextNode("Save");
     var submit = document.createElement("BUTTON");
 
     document.getElementById("mySidenav").style.width = "230px";
@@ -136,7 +136,7 @@ function openNav2() {
     var text3 = document.createTextNode("Add Notes");
     var skipLine = document.createElement("BR");
     var input = document.createElement("TEXTAREA");
-    var text4 = document.createTextNode("Save")
+    var text4 = document.createTextNode("Save");
     var submit = document.createElement("BUTTON");
 
     document.getElementById("mySidenav").style.width = "230px";
@@ -217,7 +217,7 @@ function signOut() {
     if (length == 3) {
         var title = document.getElementById("title");
         var detail = document.getElementById("details");
-        var inp = document.getElementById("input")
+        var inp = document.getElementById("input");
         document.getElementById("mySidenav").removeChild(title);
         document.getElementById("mySidenav").removeChild(detail);
         document.getElementById("mySidenav").removeChild(inp);
