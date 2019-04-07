@@ -37,7 +37,7 @@
             <div class="element">
                 <div class="check">
                     <button class="button">
-                        <div class="check-box"></div>
+                        <input type="checkbox" class="check-box">
                     </button>
                 </div>
                 <div class="task" onclick="openNav()">
@@ -50,7 +50,7 @@
             <div class="element">
                 <div class="check">
                     <button class="button">
-                        <div class="check-box"></div>
+                        <input type="checkbox" class="check-box">
                     </button>
                 </div>
                 <div class="task" onclick="openNav2()">
@@ -71,12 +71,18 @@
 
     <div id="overlay">
         <div class="addition">
-            <button class="closebtn" onclick="off()">&times;</button>
+            <a href="javascript:void(0)" class="closebtn" onclick="off()">&times;</a>
             <h1>Name:</h1>
-            <input>
+            <input placeholder="Name">
             <br>
-            <h1>Notes:</h1>
-            <input>
+            <h1>Time:</h1>
+            <input placeholder="Time">
+            <br>
+            <h1>Location:</h1>
+            <input placeholder="Location">
+            <br>
+            <h1>Extra Notes:</h1>
+            <input placeholder="Notes">
             <br>
             <button class="save" onclick="off()">Save Changes</button>
         </div>

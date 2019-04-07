@@ -78,6 +78,7 @@ function openNav() {
     h2.appendChild(text3);
     div3.appendChild(h2);
     div3.appendChild(skipLine);
+    input.setAttribute("placeholder", "Notes");
     div3.appendChild(input);
     submit.appendChild(text4);
     div3.appendChild(submit);
@@ -144,6 +145,7 @@ function openNav2() {
     h2.appendChild(text3);
     div3.appendChild(h2);
     div3.appendChild(skipLine);
+    input.setAttribute("placeholder", "Notes");
     div3.appendChild(input);
     submit.appendChild(text4);
     div3.appendChild(submit);
@@ -177,7 +179,7 @@ function openNav2() {
 }
 
 function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("mySidenav").style.width = "0px";
     document.getElementById("buttons").style.right = "20px";
     document.getElementById("buttons").style.transition = "0.5s";
 }
@@ -194,6 +196,7 @@ function signOut() {
     sign.appendChild(text);
     div.appendChild(sign);
     div.setAttribute("id", "signout");
+    sign.setAttribute("class", "signout");
     sign.setAttribute("href", "signin.html");
     
     //remove details of tasks

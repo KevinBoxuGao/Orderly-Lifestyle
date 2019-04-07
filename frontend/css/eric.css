@@ -116,9 +116,10 @@ h5 {
   margin-top: 3%;
   padding: 30px;
   margin-left: 15%;
-  background-color: white;
+  background-color: rgb(240, 240, 240);
   outline: 10px solid rgb(59, 59, 245);
   outline-offset: -10px;
+  text-align: center;
 }
 
 .addition .closebtn {
@@ -126,22 +127,31 @@ h5 {
   top: 20px;
   right: 30px;
   font-size: 30px;
+  text-decoration: none;
+  color: black;
+}
+
+.addition .closebtn:hover {
+  color: grey;
 }
 
 .addition input {
   padding: 5px;
   margin-bottom: 20px;
+  border: none;
+  margin-top: 10px;
 }
 
 .addition .save {
-  margin-top: 50px;
+  margin-top: 40px;
   padding: 5px;
-  border: 1px solid grey;
-  border-radius: 10px;
+  border: none;
 }
 
 .addition .save:hover {
-  border-color: black;
+  border-color: white;
+  background-color: white;
+  border-radius: 10px;
 }
 
 .accessibility button {
@@ -172,8 +182,8 @@ h5 {
 }
 
 .element {
-  width: 98.5%;
-  margin: 1%;
+  width: 99.5%;
+  margin: 0.25%;
   border: 1px solid #C4C4C4;
   box-sizing: border-box;
   border-radius: 20px;
@@ -276,26 +286,39 @@ h5 {
   z-index: 1;
   top: 0;
   right: 0;
-  background-color: white;
+  background-color: rgb(240, 240, 240);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
   color: black;
-  outline: 5px solid rgb(59, 59, 245);
-  outline-offset: -8px;
 }
 
-.sidenav a {
-  padding: 8px 32px;
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
   display: block;
   color: black;
   font-weight: bold;
-  text-align: center;
 }
 
-.sidenav a:hover {
+.sidenav #signout {
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.sidenav #signout a {
+  color: black;
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.sidenav a:hover, .sidenav #signout a:hover {
   color: #7c7c7c;
 }
 
@@ -311,19 +334,10 @@ h5 {
 }
 
 .sidenav div {
-  background-color: rgb(202, 202, 202);
+  background-color: white;
   padding: 10px;
   margin: 10px 0px;
-  width: 86%;
-  margin-left: 3%;
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+  width: 100%;
 }
 
 .sidenav #input h2 {
@@ -335,17 +349,18 @@ h5 {
   width: 60%;
   padding: 5px;
   margin-left: 5%;
+  border: none;
 }
 
 .sidenav #input button {
   margin-left: 8%;
-  padding: 2px;
-  border: 1px solid rgb(97, 97, 97);
-  border-radius: 10px;
+  padding: 5px;
+  border: none;
 }
 
 .sidenav #input button:hover {
-  border: 1px solid black;
+  background-color: rgb(240, 240, 240);
+  border-radius: 10px;
 }
 
 @media screen and (max-height: 450px) {
@@ -379,4 +394,19 @@ h5 {
 
 .navbar p {
   padding: 10px;
+}
+
+img {
+  height: 70%;
+  width: 80%;
+  margin-top: 30px;
+}
+
+footer {
+  text-align: center;
+  background-color: rgb(121, 168, 255);
+  padding: 20px;
+  color: white;
+  font-size: 20px;
+  margin-top: 20px;
 }
