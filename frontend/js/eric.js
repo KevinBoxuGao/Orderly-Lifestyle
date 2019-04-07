@@ -42,7 +42,7 @@ $(function(){
     $(".date").html(time().join(", "));
 });
 
-let length = 0
+let length = 0;
 
 function openNav() {
     //title
