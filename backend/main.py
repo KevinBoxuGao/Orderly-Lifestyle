@@ -6,7 +6,11 @@ import google.auth.transport.requests
 import google.oauth2.id_token
 import requests_toolbelt.adapters.appengine
 
-#from google.cloud import firestore
+
+#import firebase_admin
+#from firebase_admin import credentials
+from google.cloud import firestore
+#from firebase_admin import firestore
 
 requests_toolbelt.adapters.appengine.monkeypatch()
 HTTP_REQUEST = google.auth.transport.requests.Request()
@@ -20,16 +24,15 @@ flask_cors.CORS(app)
 def getTasks():
     id_token = request.headers['Authorization'].split(' ').pop()
 
-    #claims = google.oauth2.id_token.verify_firebase_token(id_token, HTTP_REQUEST)
-    #if not claims:
-    #    return 'Unauthorized', 401
+    claims = google.oauth2.id_token.verify_firebase_token(id_token, HTTP_REQUEST)
+    if not claims:
+        return 'Unauthorized', 401
         
     #doc_ref = db.collection('users').document(id_token).collection('tasks')
     #docs = doc_ref.list_documents()
     yes = [ "Ford", "BMW", "Fiat" ]
 
-    return jsonify(docs)
-
+    return jsonify(yes)
 
 
 

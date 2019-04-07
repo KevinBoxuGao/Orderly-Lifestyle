@@ -11,8 +11,6 @@ $(function(){
 
         user.getIdToken().then(function(idToken) {
           userIdToken = idToken;
-          console.log(userIdToken) //test
-          console.log(welcomeName) //test
           fetchTasks();
         });
 
@@ -43,7 +41,6 @@ $(function(){
         'Access-Control-Allow-Origin': '*'
       }
     }).then(function(data){
-      console.log(data);
       $('.tasks').empty();
       
       data.forEach(function(task){
