@@ -15,7 +15,7 @@ from google.cloud import firestore
 requests_toolbelt.adapters.appengine.monkeypatch()
 HTTP_REQUEST = google.auth.transport.requests.Request()
 
-#db = firestore.Client()
+db = firestore.Client()
 
 app = Flask(__name__)
 flask_cors.CORS(app)
@@ -28,18 +28,45 @@ def getTasks():
     if not claims:
         return 'Unauthorized', 401
         
-    #doc_ref = db.collection('users').document(id_token).collection('tasks')
-    #docs = doc_ref.list_documents()
-    yes = [ "Ford", "BMW", "Fiat" ]
+    doc_ref = db.collection('users').document(id_token).collection('tasks')
+    docs = doc_ref.list_documents()
+    
+    return jsonify(docs)
 
-    return jsonify(yes)
+@app.route('/add', methods=['GET'])
+def addTask():
+    id_token = request.headers['Authorization'].split(' ').pop()
+    claims = google.oauth2.id_token.verify_firebase_token(
+        id_token, HTTP_REQUEST)
+    if not claims:
+        return 'Unauthorized', 401
 
+    # [START gae_python_create_entity]
+    task = request.get_json()
 
+    doc_ref = db.collection('users').document(id_token).collection('tasks').document(task)
+    doc_ref.set({
+        'date': task['date'],
+        'location': task['location'],
+        'notes': task['notes'],
+    }) 
+    
+    return 'OK', 200
 
+@app.route('/remove', methods=['GET'])
+def deleteTask():
+    id_token = request.headers['Authorization'].split(' ').pop()
+    claims = google.oauth2.id_token.verify_firebase_token(
+        id_token, HTTP_REQUEST)
+    if not claims:
+        return 'Unauthorized', 401
 
+    # [START gae_python_create_entity]
+    task = request.get_json()
+    doc_ref = db.collection('users').document(id_token).collection('tasks').document(task)
+    doc_ref.delete()
 
-
-
+    return 'OK', 200
 
 
 
