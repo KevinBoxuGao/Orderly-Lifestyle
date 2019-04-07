@@ -52,7 +52,10 @@ function openNav() {
     //notes
     var div2 = document.createElement("DIV");
     var p = document.createElement("P");
-    var text2 = document.createTextNode("Date: April 10");
+    var text2 = document.createTextNode("Location: SJAM");
+
+    var p2 = document.createElement("P");
+    var Text2 = document.createTextNode("Time: April 10 at 8:30 am")
     //input
     var div3 = document.createElement("DIV");
     var h2 = document.createElement("H2");
@@ -72,7 +75,9 @@ function openNav() {
     div1.setAttribute("id", "title");
     //notes
     p.appendChild(text2);
+    p2.appendChild(Text2);
     div2.appendChild(p);
+    div2.appendChild(p2);
     div2.setAttribute("id", "details");
     //input
     h2.appendChild(text3);
@@ -80,7 +85,7 @@ function openNav() {
     div3.appendChild(skipLine);
     input.setAttribute("placeholder", "Notes");
     input.setAttribute("rows", "4");
-    input.setAttribute("cols", "30");
+    input.setAttribute("cols", "27");
     div3.appendChild(input);
     submit.appendChild(text4);
     div3.appendChild(submit);
@@ -121,12 +126,15 @@ function openNav2() {
     //notes
     var div2 = document.createElement("DIV");
     var p = document.createElement("P");
-    var text2 = document.createTextNode("Date: April 3");
+    var text2 = document.createTextNode("Location: SJAM");
+
+    var p2 = document.createElement("P");
+    var Text2 = document.createTextNode("Time: April 3 at 8:30 am");
     //input
     var div3 = document.createElement("DIV");
     var h2 = document.createElement("H2");
     var text3 = document.createTextNode("Add Notes");
-    var skipLine = document.createElement("BR")
+    var skipLine = document.createElement("BR");
     var input = document.createElement("TEXTAREA");
     var text4 = document.createTextNode("Save")
     var submit = document.createElement("BUTTON");
@@ -141,7 +149,9 @@ function openNav2() {
     div1.setAttribute("id", "title");
     //notes
     p.appendChild(text2);
+    p2.appendChild(Text2);
     div2.appendChild(p);
+    div2.appendChild(p2);
     div2.setAttribute("id", "details");
     //input
     h2.appendChild(text3);
@@ -149,7 +159,7 @@ function openNav2() {
     div3.appendChild(skipLine);
     input.setAttribute("placeholder", "Notes");
     input.setAttribute("rows", "4");
-    input.setAttribute("cols", "30");
+    input.setAttribute("cols", "27");
     div3.appendChild(input);
     submit.appendChild(text4);
     div3.appendChild(submit);

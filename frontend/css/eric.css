@@ -112,7 +112,7 @@ h5 {
 .addition {
   position: absolute;
   width: 70%;
-  height: 80%;
+  height: 85%;
   margin-top: 3%;
   padding: 30px;
   margin-left: 15%;
@@ -135,16 +135,15 @@ h5 {
   color: grey;
 }
 
-.addition input {
+.addition input, .addition textarea {
   padding: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   border: none;
   margin-top: 10px;
-  white-space: normal;
 }
 
 .addition .save {
-  margin-top: 40px;
+  margin-top: 10px;
   padding: 5px;
   border: 1px solid black;
   border-radius: 10px;
@@ -160,7 +159,6 @@ h5 {
   background: #1D69C4;
   height: 36px;
   font-size: 24px;
-  margin: 0px 8px;
 }
 
 .accessibility button i {
@@ -330,7 +328,7 @@ h5 {
 }
 
 .sidenav p {
-  padding: 8px 8px 8px 32px;
+  padding: 5px;
   font-size: 15px;
 }
 
@@ -349,21 +347,20 @@ h5 {
 .sidenav #input textarea {
   width: 60%;
   padding: 5px;
-  margin-left: 15%;
+  margin-left: 5%;
   border: none;
-  white-space: normal;
 }
 
 .sidenav #input button {
-  margin-left: 40%;
   padding: 5px;
   border: 1px solid black;
   border-radius: 10px;
+  margin-left: 10px;
 }
 
 .sidenav #input button:hover {
-  border-color: rgb(206, 206, 206);
-  background-color: rgb(206, 206, 206);
+  background-color: rgb(219, 219, 219);
+  border-color: rgb(219, 219, 219);
 }
 
 @media screen and (max-height: 450px) {
