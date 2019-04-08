@@ -67,46 +67,46 @@ $(function(){
   }
 
   //add task
-  function addTask() {
-    task = 
-    $.ajax({
-      url: backendHostUrl +'/add',
-      crossOrigin: true,
-      /* Set header for the XMLHttpRequest to get data from the web server
-      associated with userIdToken */
-      headers: {
-        'Authorization': 'Bearer ' + userIdToken,
-        'Access-Control-Allow-Origin': '*'
-      },
-      method: 'POST',
-      data: JSON.stringify({'message': task}),
-      contentType : 'application/json'
-    }).then(function(data){
-      //refresh display
-      fetchNotes();
-    });
-  }
+  //function addTask() {
+  //  task = 
+  //  $.ajax({
+  //    url: backendHostUrl +'/add',
+  //    crossOrigin: true,
+  //    /* Set header for the XMLHttpRequest to get data from the web server
+  //    associated with userIdToken */
+  //    headers: {
+  //      'Authorization': 'Bearer ' + userIdToken,
+  //      'Access-Control-Allow-Origin': '*'
+  //    },
+  //    method: 'POST',
+  //    data: JSON.stringify({'message': task}),
+  //    contentType : 'application/json'
+  //  }).then(function(data){
+  //    //refresh display
+  //    fetchNotes();
+  //  });
+  //}
 
-  //delete task
-  function deleteTask() {
-    task = 
-    $.ajax({
-      url: backendHostUrl +'/remove',
-      crossOrigin: true,
-      /* Set header for the XMLHttpRequest to get data from the web server
-      associated with userIdToken */
-      headers: {
-        'Authorization': 'Bearer ' + userIdToken,
-        'Access-Control-Allow-Origin': '*'
-      },
-      method: 'POST',
-      data: JSON.stringify({'message': task}),
-      contentType : 'application/json'
-    }).then(function(data){
-      //refresh display
-      fetchNotes();
-    });  
-  }
+  ////delete task
+  //function deleteTask() {
+  //  task = 
+  //  $.ajax({
+  //    url: backendHostUrl +'/remove',
+  //    crossOrigin: true,
+  //    /* Set header for the XMLHttpRequest to get data from the web server
+  //    associated with userIdToken */
+  //    headers: {
+  //      'Authorization': 'Bearer ' + userIdToken,
+  //      'Access-Control-Allow-Origin': '*'
+  //    },
+  //    method: 'POST',
+  //    data: JSON.stringify({'message': task}),
+  //    contentType : 'application/json'
+  //  }).then(function(data){
+  //    //refresh display
+  //    fetchNotes();
+  //  });  
+  //}
 
   configureFirebaseLogin();
 });
