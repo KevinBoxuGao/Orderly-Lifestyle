@@ -9,11 +9,14 @@
         
         <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
         <link rel="stylesheet" type="text/css" media="screen" href="css/secondary.css">
+
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-        <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+
         <script src="js/fireBase.js"></script>
         <script src="js/main.js"></script>
         <script src="js/display.js"></script>
@@ -21,34 +24,33 @@
 
     <body>
         <div class="container">
-            <div id="mySidenav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="sideNav">
+                <a href="javascript:void(0)" class="exitBtn" onclick="closeNav()">&times;</a>
             </div>
 
             <div class="header">
-                <h1 class="greeting">Good Morning, What Will Your Day Look Like?</h1>
+                <h1 id="greeting">Good Morning, What Will Your Day Look Like?</h1>
                 <h2 class="date"></h2>  
                 <div id="buttons" class="accessibility">
                     <button class="settings" onclick="signOut()"><i class="fas fa-cog"></i></button>
                 </div>
             </div>
 
-            <div class="tasks">
-                <div class="actualTasks">
+            <div class="main-content">
+                <div class="tasks">
                 </div>
-
                 <div class="task add-task" onclick="on()">
-                    <button class="button">
+                    <div class="content">    
                         <i class="fas fa-plus"></i>
                         <h2>Add Task</h2>
-                    </button>
+                    </div>
                 </div>
             </div>
        
         </div>
-        <div id="overlay">
-            <div class="addition">
-                <a href="javascript:void(0)" class="closebtn" onclick="off()">&times;</a>
+        <div id="add-task">
+            <div class="content">
+                <a href="javascript:void(0)" class="exitBtn" onclick="off()">&times;</a>
                 <h1>Name:</h1>
                 <input placeholder="Name" id="task">
                 <br>
@@ -63,7 +65,7 @@
                 <br>
                 <button id="save-task" class="save" onclick="off()">Save Changes</button>
             </div>
-    </div>
+        </div>
     </body>
 </html>
     

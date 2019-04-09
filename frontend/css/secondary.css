@@ -1,100 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Lato");
-
-* {
-  padding: 0;
-  margin: 0;
-  transition: 0.2s;
-}
-
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-button {
-  background: none;
-  border: none;
-}
-
-body {
-  font-family: Lato, sans-serif;
-  font-weight: 400;
-  color: black;
-}
-
-p {
-  font-family: Lato, sans-serif;
-  margin-bottom: 1.25em;
-}
-
-h1, h2, h3, h4, h5 {
-  font-family: Lato, sans-serif;
-  font-weight: 400;
-  color: black;
-}
-
-h1 {
-  font-size: 36px;
-}
-
-h2 {
-  font-size: 24px;
-}
-
-h3 {
-  font-size: 18px;
-}
-
-h4 {
-  font-size: 1.563em;
-}
-
-h5 {
-  font-size: 1.25em;
-}
-
-.hide-text {
-  overflow: hidden;
-  padding: 0;
-  text-indent: 101%;
-  white-space: nowrap;
-}
-
-/*
-* Hide element while making it readable for screen readers
-* Shamelessly borrowed from HTML5Boilerplate:
-* https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
-*/
-.visually-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.add-task button {
-  position: relative;
-  left: 24px;
-  top: 35px;
-}
-.add-task button .fa-plus {
-  color: #1400FF;
-  font-size: 24px;
-  margin-right: 16px;
-  display: inline;
-}
-.add-task button h2 {
-  color: #1400FF;
-  display: inline;
-}
 
 #overlay {
   position: fixed;
@@ -154,25 +57,8 @@ h5 {
   background-color: white;
 }
 
-.accessibility button {
-  color: white;
-  background: #1D69C4;
-  height: 36px;
-  font-size: 24px;
-}
 
-.accessibility button i {
-  padding: 6px 10px;
-}
 
-.accessibility button:hover {
-  background: white;
-  box-shadow: 0 0 0 2px white;
-}
-
-.accessibility button:hover i {
-  color: #1D69C4;
-}
 
 .check {
   position: absolute;
