@@ -1,1 +1,1 @@
-To-Do-List for CS Club Project 2019.
+To do list web app for CS Club Project 2019.
