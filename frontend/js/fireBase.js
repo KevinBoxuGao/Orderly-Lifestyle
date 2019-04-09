@@ -1,11 +1,11 @@
 $(function(){
     var config = {
-        apiKey: "AIzaSyAB5gvYSeK8U4KSKlBcPRADDVyWi4dLsMg",
-        authDomain: "orderly-life.firebaseapp.com",
-        databaseURL: "https://orderly-life.firebaseio.com",
-        projectId: "orderly-life",
-        storageBucket: "orderly-life.appspot.com",
-        messagingSenderId: "957471703508"
-    };
-    firebase.initializeApp(config);
+        apiKey: "AIzaSyCJ0Cf59tMBe7g0wnujhCjnjRyJxe7RZQs",
+        authDomain: "orderly-lifestyle.firebaseapp.com",
+        databaseURL: "https://orderly-lifestyle.firebaseio.com",
+        projectId: "orderly-lifestyle",
+        storageBucket: "orderly-lifestyle.appspot.com",
+        messagingSenderId: "1056442261794"
+      };
+      firebase.initializeApp(config);    
 });  

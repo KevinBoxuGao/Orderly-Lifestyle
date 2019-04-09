@@ -11,7 +11,7 @@ $(function(){
 
         user.getIdToken().then(function(idToken) {
           userIdToken = idToken;
-          fetchTasks();
+          register();
         });
 
       } else {
@@ -33,80 +33,109 @@ $(function(){
 
   //get backend data
   function fetchTasks() {
-    $.ajax(backendHostUrl + '/user', { 
+    $.ajax(backendHostUrl + '/accountdata', { 
       /* Set header for the XMLHttpRequest to get data from the web server
       associated with userIdToken */
       headers: {
         'Authorization': 'Bearer ' + userIdToken,
         'Access-Control-Allow-Origin': '*'
       }
+
     }).then(function(data){
-      $('.tasks').empty();
+      $('.actualTasks').empty();
       
       data.forEach(function(task){
-        $('.tasks').append(
-          $('<div/>', {'class': 'task'}).append(
-            $('<div/>', {'class': 'content'}).append(
-              $('<button/>', {'class': 'button'}).append($('<div/>', {'class': 'check-box'})),
-              $('<h2/>', {'class':'name'}).text(task)
-            )
+        $('.actualTasks').append(
+          $('<div/>', {'class': 'element'}).append(
+            $('<div/>', {'class': 'check'}).append(
+              $('<button/>', {'class': 'button'}).append(
+                $("<input>", {'type': 'checkbox', 'class': 'check-box', 'id':'delete-task'}))), 
+              
+            $('<div/>', {'class': 'task'}).append(
+              $('<div/>', {'class': 'content'}).append(
+                $('<h2/>', {'class':'name', 'id':'task-content'}).text(task[0])))
           )
         )
       }); 
-      $('.tasks').append(
-        $('<div/>', {'class': 'task add-task'}).append(
-          $('<button/>', {'class': 'button'}).append(
-            $('<i/>', {'class': 'fas fa-plus'}),
-            $('<h2/>').text('Add Task')
-          )
-        )
-      );
 
-              
     });
   }
 
+  function register() {
+    $.ajax(backendHostUrl + '/register', {
+      headers: {
+        'Authorization': 'Bearer ' + userIdToken,
+        'Access-Control-Allow-Origin': '*'
+      },
+      method: 'POST',
+      data: JSON.stringify({'empty' : 'header'}),
+      contentType : 'application/json'
+    }).then(function(){
+      fetchTasks();
+    });  
+  }
+  
   //add task
-  //function addTask() {
-  //  task = 
-  //  $.ajax({
-  //    url: backendHostUrl +'/add',
-  //    crossOrigin: true,
-  //    /* Set header for the XMLHttpRequest to get data from the web server
-  //    associated with userIdToken */
-  //    headers: {
-  //      'Authorization': 'Bearer ' + userIdToken,
-  //      'Access-Control-Allow-Origin': '*'
-  //    },
-  //    method: 'POST',
-  //    data: JSON.stringify({'message': task}),
-  //    contentType : 'application/json'
-  //  }).then(function(data){
-  //    //refresh display
-  //    fetchNotes();
-  //  });
-  //}
+  var saveTaskBtn = $('#save-task')
+  saveTaskBtn.click(function(event) {
+    event.preventDefault();
 
-  ////delete task
-  //function deleteTask() {
-  //  task = 
-  //  $.ajax({
-  //    url: backendHostUrl +'/remove',
-  //    crossOrigin: true,
-  //    /* Set header for the XMLHttpRequest to get data from the web server
-  //    associated with userIdToken */
-  //    headers: {
-  //      'Authorization': 'Bearer ' + userIdToken,
-  //      'Access-Control-Allow-Origin': '*'
-  //    },
-  //    method: 'POST',
-  //    data: JSON.stringify({'message': task}),
-  //    contentType : 'application/json'
-  //  }).then(function(data){
-  //    //refresh display
-  //    fetchNotes();
-  //  });  
-  //}
+    var taskField = $('#task');
+    var task = taskField.val();
+    taskField.val("");
+
+    var dateField = $('#date');
+    var date = dateField.val();
+    dateField.val("");
+
+    var locationField = $('#location');
+    var location = locationField.val();
+    locationField.val("");
+
+    var noteField = $('#note');
+    var note = taskField.val();
+    noteField.val("");
+    
+    console.log(task);
+
+
+
+    //send task to backend, store in databse with userIdToken
+    $.ajax(backendHostUrl + '/accountdata', {
+      headers: {
+        'Authorization': 'Bearer ' + userIdToken,
+        'Access-Control-Allow-Origin': '*'
+      },
+      method: 'POST',
+      data: JSON.stringify({'task' : task, 'date' : date, 'location': location, 'note' : note}),
+      contentType : 'application/json'
+    }).then(function(){
+      fetchTasks();
+    });
+  });
+
+  //delete task
+  var deleteTaskBtn = $('#delete-task')
+  deleteTaskBtn.click(function(event) {
+    event.preventDefault();
+
+    var taskField = $('#task-content');
+    var task = taskField.val();
+    taskField.val("");
+    
+    //send task to backend, store in databse with userIdToken
+    $.ajax(backendHostUrl + '/removetasks', {
+      headers: {
+        'Authorization': 'Bearer ' + userIdToken,
+        'Access-Control-Allow-Origin': '*'
+      },
+      method: 'POST',
+      data: JSON.stringify({'task' : task}),
+      contentType : 'application/json'
+    }).then(function(){
+      getTasks();
+    });
+  });
 
   configureFirebaseLogin();
 });
