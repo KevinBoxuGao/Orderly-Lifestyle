@@ -1,0 +1,12 @@
+indexes:
+
+- kind: Account
+  ancestor: yes
+  properties:
+  - name: created
+
+- kind: Account
+  ancestor: yes
+  properties:
+  - name: created
+    direction: desc
