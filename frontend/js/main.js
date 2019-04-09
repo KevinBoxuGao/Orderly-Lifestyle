@@ -1,6 +1,6 @@
 $(function(){
-  var backendHostUrl = "https://backend-dot-orderly-life.appspot.com/";
-  
+  var backendHostUrl = "https://backend-dot-orderly-lifestyle.appspot.com";
+
   //login
   var userIdToken = null;
   function configureFirebaseLogin() {  
@@ -61,19 +61,19 @@ $(function(){
     });
   }
 
-  //function register() {
-  //  $.ajax(backendHostUrl + '/register', {
-  //    headers: {
-  //      'Authorization': 'Bearer ' + userIdToken,
-  //      'Access-Control-Allow-Origin': '*'
-  //    },
-  //    method: 'POST',
-  //    data: JSON.stringify({'empty' : 'header'}),
-  //    contentType : 'application/json'
-  //  }).then(function(){
-  //    fetchTasks();
-  //  });  
-  //}
+  function register() {
+    $.ajax(backendHostUrl + '/register', {
+      headers: {
+        'Authorization': 'Bearer ' + userIdToken,
+        'Access-Control-Allow-Origin': '*'
+      },
+      method: 'POST',
+      data: JSON.stringify({'empty' : 'header'}),
+      contentType : 'application/json'
+    }).then(function(){
+      fetchTasks();
+    });  
+  }
   
   //add task
   var saveTaskBtn = $('#save-task')
@@ -96,7 +96,6 @@ $(function(){
     var note = taskField.val();
     noteField.val("");
     
-
     //send task to backend, store in databse with userIdToken
     $.ajax(backendHostUrl + '/accountdata', {
       headers: {
@@ -130,7 +129,7 @@ $(function(){
   //      'Authorization': 'Bearer ' + userIdToken,
   //      'Access-Control-Allow-Origin': '*'
   //    },
-  //    
+  //    method: 'POST',
   //    data: JSON.stringify(tasks),
   //    contentType : 'application/json'
   //    

@@ -65,6 +65,7 @@ def addtask():
 
     return 'OK', 200
 
+
 #@app.route('/delete', methods=['GET'])
 #def deletetask():
 #    id_token = request.headers['Authorization'].split(' ').pop()
@@ -81,24 +82,25 @@ def addtask():
 #
 #    return jsonify(json)
 
-#@app.route('/register', methods=['POST', 'PUT'])
-#def register():
-#
-#    # Verify Firebase auth.
-#    id_token = request.headers['Authorization'].split(' ').pop()
-#    claims = google.oauth2.id_token.verify_firebase_token(id_token, HTTP_REQUEST)
-#    if not claims:
-#        return 'Unauthorized', 401
-#    data = query_database(claims['sub'])
-#    if len(data) == 0:
-#        accountData = Account(
-#            parent=ndb.Key(Account, claims['sub']),
-#            email = claims.get('name', claims.get('email', 'Unknown')),
-#            tasks=[])
-#
-#        accountData.put()
-#
-#    return 'OK', 200
+@app.route('/register', methods=['POST', 'PUT'])
+def register():
+
+    # Verify Firebase auth.
+    id_token = request.headers['Authorization'].split(' ').pop()
+    claims = google.oauth2.id_token.verify_firebase_token(id_token, HTTP_REQUEST)
+    if not claims:
+        return 'Unauthorized', 401
+    data = query_database(claims['sub'])
+    if len(data) == 0:
+        accountData = Account(
+            parent=ndb.Key(Account, claims['sub']),
+            email = claims.get('name', claims.get('email', 'Unknown')),
+            tasks=[])
+
+        accountData.put()
+
+    return 'OK', 200
+
 
 @app.errorhandler(500)
 def server_error(e):
