@@ -25,6 +25,7 @@ def query_database(user_id):
     data = []
     if len(accountData) > 0:
         accountData = accountData[0]
+
         data.append({
             'key' : accountData.key,
             'tasks' : accountData.tasks,
@@ -53,8 +54,8 @@ def addtask():
 
     json = request.get_json()
     data = query_database(claims['sub'])
+    
     data = data[0]
-
     task = Account(
         parent = ndb.Key(Account, claims['sub']),
         tasks=data['tasks']+[json['task']]
@@ -64,38 +65,40 @@ def addtask():
 
     return 'OK', 200
 
-#@app.route('/removetasks', methods=['POST', 'PUT'])
-#def addtask():
+#@app.route('/delete', methods=['GET'])
+#def deletetask():
 #    id_token = request.headers['Authorization'].split(' ').pop()
 #    claims = google.oauth2.id_token.verify_firebase_token(id_token, HTTP_REQUEST)
 #    if not claims:
 #        return 'Unauthorized', 401        
 #
 #    json = request.get_json()
-#    data = query_database(claims['sub'])
+#    #data = query_database(claims['sub'])
 #
-#    ndb.Key(user, claims['sub']).delete()
-#       
+#    #for i in json:
+#    #    ndb.Key(Account, claims['sub']).delete()
+#
+#
+#    return jsonify(json)
+
+#@app.route('/register', methods=['POST', 'PUT'])
+#def register():
+#
+#    # Verify Firebase auth.
+#    id_token = request.headers['Authorization'].split(' ').pop()
+#    claims = google.oauth2.id_token.verify_firebase_token(id_token, HTTP_REQUEST)
+#    if not claims:
+#        return 'Unauthorized', 401
+#    data = query_database(claims['sub'])
+#    if len(data) == 0:
+#        accountData = Account(
+#            parent=ndb.Key(Account, claims['sub']),
+#            email = claims.get('name', claims.get('email', 'Unknown')),
+#            tasks=[])
+#
+#        accountData.put()
+#
 #    return 'OK', 200
-
-@app.route('/register', methods=['POST', 'PUT'])
-def register():
-
-    # Verify Firebase auth.
-    id_token = request.headers['Authorization'].split(' ').pop()
-    claims = google.oauth2.id_token.verify_firebase_token(id_token, HTTP_REQUEST)
-    if not claims:
-        return 'Unauthorized', 401
-    data = query_database(claims['sub'])
-    if len(data) == 0:
-        accountData = Account(
-            parent=ndb.Key(Account, claims['sub']),
-            email = claims.get('name', claims.get('email', 'Unknown')),
-            tasks=[])
-
-        accountData.put()
-
-    return 'OK', 200
 
 @app.errorhandler(500)
 def server_error(e):
