@@ -120,79 +120,9 @@ function openNav() {
     console.log(length);
 }
 
-function openNav2() {
-    //title
-    var div1 = document.createElement("DIV");
-    var h = document.createElement("H1");
-    var text1 = document.createTextNode("Extra Details:");
-    //notes
-    var div2 = document.createElement("DIV");
-    var p = document.createElement("P");
-    var text2 = document.createTextNode("Location: SJAM");
 
-    var p2 = document.createElement("P");
-    var Text2 = document.createTextNode("Time: April 3 at 8:30 am");
-    //input
-    var div3 = document.createElement("DIV");
-    var h2 = document.createElement("H2");
-    var text3 = document.createTextNode("Add Notes");
-    var skipLine = document.createElement("BR");
-    var input = document.createElement("TEXTAREA");
-    var text4 = document.createTextNode("Save");
-    var submit = document.createElement("BUTTON");
 
-    document.getElementById("mySidenav").style.width = "230px";
-    document.getElementById("buttons").style.right = "240px";
-    document.getElementById("buttons").style.transition = "0.5s";
 
-    //title
-    h.appendChild(text1);
-    div1.appendChild(h);
-    div1.setAttribute("id", "title");
-    //notes
-    p.appendChild(text2);
-    p2.appendChild(Text2);
-    div2.appendChild(p);
-    div2.appendChild(p2);
-    div2.setAttribute("id", "details");
-    //input
-    h2.appendChild(text3);
-    div3.appendChild(h2);
-    div3.appendChild(skipLine);
-    input.setAttribute("placeholder", "Notes");
-    input.setAttribute("rows", "4");
-    input.setAttribute("cols", "27");
-    div3.appendChild(input);
-    submit.appendChild(text4);
-    div3.appendChild(submit);
-    div3.setAttribute("id", "input");
-
-    //remove sign out link
-    if (length == 1) {
-        var sign = document.getElementById("signout");
-        document.getElementById("mySidenav").removeChild(sign);
-        length = length - 1;
-    }
-    //remove details of other tasks
-    else if (length == 3) {
-        var title = document.getElementById("title");
-        var detail = document.getElementById("details");
-        var inp = document.getElementById("input");
-        document.getElementById("mySidenav").removeChild(title);
-        document.getElementById("mySidenav").removeChild(detail);
-        document.getElementById("mySidenav").removeChild(inp);
-        length = length - 3;
-    }
-
-    if (length == 0) {
-        document.getElementById("mySidenav").appendChild(div1);
-        document.getElementById("mySidenav").appendChild(div2);
-        document.getElementById("mySidenav").appendChild(div3);
-        length = length + 3;
-    }
-
-    console.log(length);
-}
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0px";
@@ -213,7 +143,7 @@ function signOut() {
     div.appendChild(sign);
     div.setAttribute("id", "signout");
     sign.setAttribute("class", "signout");
-    sign.setAttribute("href", "signin.html");
+    sign.setAttribute("onclick", "logOut()");
     
     //remove details of tasks
     if (length == 3) {
@@ -240,4 +170,13 @@ function on() {
 
 function off() {
     document.getElementById("overlay").style.display = "none";
+}
+
+function logOut(){
+    firebase.auth().signOut().then(function() {
+      console.log("Sign out successful");
+      window.location.replace("login.html");
+    }, function(error) {
+      console.log(error);
+    });
 }

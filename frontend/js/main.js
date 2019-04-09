@@ -1,5 +1,5 @@
 $(function(){
-  var backendHostUrl = "https://backend-dot-orderly-lifestyle.appspot.com";
+  var backendHostUrl = "http://localhost:8081";
   
   //login
   var userIdToken = null;
