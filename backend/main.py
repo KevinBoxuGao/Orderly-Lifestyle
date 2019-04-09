@@ -64,20 +64,6 @@ def addtask():
 
     return 'OK', 200
 
-#@app.route('/removetasks', methods=['POST', 'PUT'])
-#def addtask():
-#    id_token = request.headers['Authorization'].split(' ').pop()
-#    claims = google.oauth2.id_token.verify_firebase_token(id_token, HTTP_REQUEST)
-#    if not claims:
-#        return 'Unauthorized', 401        
-#
-#    json = request.get_json()
-#    data = query_database(claims['sub'])
-#
-#    ndb.Key(user, claims['sub']).delete()
-#       
-#    return 'OK', 200
-
 @app.route('/register', methods=['POST', 'PUT'])
 def register():
 

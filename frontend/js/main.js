@@ -1,5 +1,5 @@
 $(function(){
-  var backendHostUrl = "http://localhost:8081";
+  var backendHostUrl = "https://backend-dot-orderly-lifestyle.appspot.com";
   
   //login
   var userIdToken = null;
@@ -53,7 +53,7 @@ $(function(){
               
             $('<div/>', {'class': 'task'}).append(
               $('<div/>', {'class': 'content'}).append(
-                $('<h2/>', {'class':'name', 'id':'task-content'}).text(task[0])))
+                $('<h2/>', {'class':'name', 'id':'task-content'}).text(task)))
           )
         )
       }); 
@@ -115,27 +115,27 @@ $(function(){
   });
 
   //delete task
-  var deleteTaskBtn = $('#delete-task')
-  deleteTaskBtn.click(function(event) {
-    event.preventDefault();
-
-    var taskField = $('#task-content');
-    var task = taskField.val();
-    taskField.val("");
-    
-    //send task to backend, store in databse with userIdToken
-    $.ajax(backendHostUrl + '/removetasks', {
-      headers: {
-        'Authorization': 'Bearer ' + userIdToken,
-        'Access-Control-Allow-Origin': '*'
-      },
-      method: 'POST',
-      data: JSON.stringify({'task' : task}),
-      contentType : 'application/json'
-    }).then(function(){
-      getTasks();
-    });
-  });
+  //var deleteTaskBtn = $('#delete-task')
+  //deleteTaskBtn.click(function(event) {
+  //  event.preventDefault();
+//
+  //  var taskField = $('#task-content');
+  //  var task = taskField.val();
+  //  taskField.val("");
+  //  
+  //  //send task to backend, store in databse with userIdToken
+  //  $.ajax(backendHostUrl + '/removetasks', {
+  //    headers: {
+  //      'Authorization': 'Bearer ' + userIdToken,
+  //      'Access-Control-Allow-Origin': '*'
+  //    },
+  //    method: 'POST',
+  //    data: JSON.stringify({'task' : task}),
+  //    contentType : 'application/json'
+  //  }).then(function(){
+  //    getTasks();
+  //  });
+  //});
 
   configureFirebaseLogin();
 });
