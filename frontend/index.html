@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>To-Do-List</title>
+        <title>Orderly-Lifestyle</title>
         
         <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
         <link rel="stylesheet" type="text/css" media="screen" href="css/secondary.css">
@@ -16,46 +16,46 @@
         <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
         <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
-
+        
         <script src="js/fireBase.js"></script>
-        <script src="js/main.js"></script>
+        <!-- script src="js/main.js"></script -->
         <script src="js/display.js"></script>
     </head>
 
     <body>
         <div class="container">
-            <div class="sideNav">
-                <a href="javascript:void(0)" class="exitBtn" onclick="closeNav()">&times;</a>
+            <div class="side-nav">
+                <a href="javascript:void(0)" id="side-nav__exit" class="exit-button" onclick="closeNav()">&times;</a>
             </div>
 
-            <div class="header">
+            <div id="header">
                 <h1 id="greeting">Good Morning, What Will Your Day Look Like?</h1>
-                <h2 class="date"></h2>  
-                <div id="buttons" class="accessibility">
-                    <button class="settings" onclick="signOut()"><i class="fas fa-cog"></i></button>
+                <h2 id="date"></h2>  
+                <div class="header__buttons">
+                    <button class="header__buttons__settings" onclick="signOut()"><i class="fas fa-cog"></i></button>
                 </div>
             </div>
 
-            <div class="main-content">
+            <div class="tasks__container">
                 <div class="tasks">
                 </div>
-                <div class="task add-task" onclick="on()">
-                    <div class="content">    
+                <div class="task add-task__button" onclick="on()">
+                    <div class="add-task__container">    
                         <i class="fas fa-plus"></i>
                         <h2>Add Task</h2>
                     </div>
                 </div>
             </div>
-       
         </div>
-        <div id="add-task">
-            <div class="content">
-                <a href="javascript:void(0)" class="exitBtn" onclick="off()">&times;</a>
-                <h1>Name:</h1>
-                <input placeholder="Name" id="task">
+
+        <div class="add-task__form">
+            <div class="add-task__form__container">
+                <a href="javascript:void(0)" id="add-task__form__button" class="exit-button" onclick="off()">&times;</a>
+                <h1>Task:</h1>
+                <input placeholder="Task" id="task">
                 <br>
                 <h1>Date:</h1>
-                <input placeholder="Date" id="Date">
+                <input placeholder="Date" id="date">
                 <br>
                 <h1>Location:</h1>
                 <input placeholder="Location" id="location">
@@ -63,7 +63,7 @@
                 <h1>Extra Notes:</h1>
                 <textarea id="notes" placeholder="Notes" rows="4" cols="30"></textarea>
                 <br>
-                <button id="save-task" class="save" onclick="off()">Save Changes</button>
+                <button class="save-task" onclick="off()">Save Changes</button>
             </div>
         </div>
     </body>
