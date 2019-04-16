@@ -39,8 +39,8 @@ function greeting() {
   
   
   $(function(){
-    $(".greeting").html(greeting());
-    $(".date").html(time().join(", "));
+    $("#greeting").html(greeting());
+    $("#date").html(time().join(", "));
 
 });
 

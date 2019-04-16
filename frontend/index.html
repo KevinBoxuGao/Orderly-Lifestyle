@@ -18,26 +18,49 @@
         <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
         
         <script src="js/fireBase.js"></script>
-        <!-- script src="js/main.js"></script -->
+        <!--script src="js/main.js"></script-->
         <script src="js/display.js"></script>
     </head>
 
     <body>
         <div class="container">
-            <div class="side-nav">
-                <a href="javascript:void(0)" id="side-nav__exit" class="exit-button" onclick="closeNav()">&times;</a>
+            <div class="side-bar">
+                <a href="javascript:void(0)" id="side-bar__exit" class="exit-button" onclick="closeNav()">&times;</a>
             </div>
 
             <div id="header">
                 <h1 id="greeting">Good Morning, What Will Your Day Look Like?</h1>
-                <h2 id="date"></h2>  
+                <h2 id="date">April 4, 2019</h2>  
                 <div class="header__buttons">
-                    <button class="header__buttons__settings" onclick="signOut()"><i class="fas fa-cog"></i></button>
+                    <button id="header__buttons__settings" onclick="signOut()"><i class="fas fa-cog"></i></button>
                 </div>
             </div>
 
             <div class="tasks__container">
                 <div class="tasks">
+                    <!--
+                    <div class="element">
+                        <div class="check">
+                            <button class="button">
+                                <input id="delete-task" class="check-box" type="checkbox"> 
+                            </button>
+                        </div>
+                        <div class="task">
+                            <div class="content">
+                                <h2 id="task-content" class="name">Galois</h2>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="task">
+                        <div class="task__container">
+                            <div class="check-box">
+                                <button></button>
+                            </div>
+                            <div class="task__name__wrapper">
+                                <h2 class="task__name">Galois</h2>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="task add-task__button" onclick="on()">
                     <div class="add-task__container">    
