@@ -8,7 +8,7 @@
         <title>Orderly-Lifestyle</title>
         
         <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="css/secondary.css">
+   
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
@@ -24,56 +24,47 @@
 
     <body>
         <div class="container">
-            <div class="side-bar">
+            <div id="side-bar">
                 <a href="javascript:void(0)" id="side-bar__exit" class="exit-button" onclick="closeNav()">&times;</a>
             </div>
 
             <div id="header">
                 <h1 id="greeting">Good Morning, What Will Your Day Look Like?</h1>
-                <h2 id="date">April 4, 2019</h2>  
-                <div class="header__buttons">
-                    <button id="header__buttons__settings" onclick="signOut()"><i class="fas fa-cog"></i></button>
+                <h2 id="date"></h2>  
+                <div id="header__buttons">
+                    <button id="header__buttons__settings" onclick="openNav()"><i class="fas fa-cog"></i></button>
                 </div>
             </div>
 
             <div class="tasks__container">
+                
                 <div class="tasks">
-                    <!--
-                    <div class="element">
-                        <div class="check">
-                            <button class="button">
-                                <input id="delete-task" class="check-box" type="checkbox"> 
-                            </button>
-                        </div>
-                        <div class="task">
-                            <div class="content">
-                                <h2 id="task-content" class="name">Galois</h2>
-                            </div>
-                        </div>
-                    </div> -->
                     <div class="task">
                         <div class="task__container">
                             <div class="check-box">
-                                <button></button>
+                                <input type="checkbox" data="euclid"></input>
                             </div>
                             <div class="task__name__wrapper">
-                                <h2 class="task__name">Galois</h2>
+                                <h2 class="task__name">Euclid</h2>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="task add-task__button" onclick="on()">
+
+                <div class="task add-task__button" onclick="openAddTaskForm()">
                     <div class="add-task__container">    
                         <i class="fas fa-plus"></i>
                         <h2>Add Task</h2>
                     </div>
                 </div>
+
             </div>
+
         </div>
 
-        <div class="add-task__form">
+        <div id="add-task__form">
             <div class="add-task__form__container">
-                <a href="javascript:void(0)" id="add-task__form__button" class="exit-button" onclick="off()">&times;</a>
+                <a href="javascript:void(0)" id="add-task__form__button" class="exit-button" onclick="closeAddTaskForm()">&times;</a>
                 <h1>Task:</h1>
                 <input placeholder="Task" id="task">
                 <br>
@@ -86,7 +77,7 @@
                 <h1>Extra Notes:</h1>
                 <textarea id="notes" placeholder="Notes" rows="4" cols="30"></textarea>
                 <br>
-                <button class="save-task" onclick="off()">Save Changes</button>
+                <button class="save-task" onclick="closeAddTaskForm()">Save Changes</button>
             </div>
         </div>
     </body>

@@ -1,4 +1,4 @@
-.header__buttons {
+#header__buttons {
     button {
         color: white;
         background: $hover-secondary;
@@ -6,6 +6,7 @@
         font-size: 24px;
         margin: 0px 8px;
         transition: 0.2s;
+        outline: none;
         i {
             padding: 6px 10px;
         }
@@ -20,6 +21,7 @@
 }
 
 .exit-button {
+    outline: none;
     position: absolute;
     text-decoration: none;
     color: black;

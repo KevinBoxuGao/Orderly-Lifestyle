@@ -13,6 +13,7 @@ button {
   background: none;
   border: none;
   transition: 0.2;
+  outline: none;
 }
 
 a {
@@ -56,26 +57,28 @@ h5 {
   font-size: 1.25em;
 }
 
-.header__buttons button {
+#header__buttons button {
   color: white;
   background: #1D69C4;
   height: 36px;
   font-size: 24px;
   margin: 0px 8px;
   transition: 0.2s;
+  outline: none;
 }
-.header__buttons button i {
+#header__buttons button i {
   padding: 6px 10px;
 }
-.header__buttons button:hover {
+#header__buttons button:hover {
   background: white;
   box-shadow: 0 0 0 2px white;
 }
-.header__buttons button:hover i {
+#header__buttons button:hover i {
   color: #1D69C4;
 }
 
 .exit-button {
+  outline: none;
   position: absolute;
   text-decoration: none;
   color: black;
@@ -103,13 +106,13 @@ h5 {
   left: 32px;
   top: 108px;
 }
-#header .header__buttons {
+#header #header__buttons {
   position: absolute;
   right: 20px;
   top: 118px;
 }
 
-side-bar {
+#side-bar {
   height: 100%;
   width: 0;
   position: fixed;
@@ -122,61 +125,57 @@ side-bar {
   padding-top: 60px;
   color: black;
 }
-side-bar #side-bar__exit {
+#side-bar #side-bar__exit {
+  outline: none;
   position: absolute;
   top: 0;
-  right: 25px;
+  right: 24px;
   font-size: 36px;
   margin-left: 50px;
-  padding: 8px 8px 8px 32px;
+  padding: 8px;
   text-decoration: none;
   display: block;
   color: black;
   font-weight: bold;
 }
-side-bar a {
-  float: right;
-  background-color: blue;
-  height: 50px;
-  padding: 10px;
-  text-align: center;
-  color: white;
-  text-decoration: none;
-  display: inline;
-}
-side-bar a:hover {
-  color: blue;
-  background-color: white;
-}
-side-bar #signout {
+#side-bar #signout {
   padding: 8px;
   text-align: center;
   font-weight: bold;
 }
-side-bar #signout a {
+#side-bar #signout a {
   color: black;
   font-size: 25px;
   text-decoration: none;
 }
-side-bar #signout a:hover {
+#side-bar #signout a:hover {
   color: #7c7c7c;
 }
-side-bar h1 {
+#side-bar h1 {
   font-size: 30px;
   font-weight: bold;
   text-align: center;
 }
-side-bar p {
+#side-bar p {
   padding: 5px;
   font-size: 15px;
 }
-side-bar div {
+#side-bar div {
   background-color: white;
   padding: 10px;
   margin: 10px 0px;
   width: 100%;
 }
 
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+}
 .task {
   width: 99.5%;
   margin: 0.25%;
@@ -190,22 +189,22 @@ side-bar div {
 }
 .task .task__container {
   position: relative;
-  top: 30%;
+  top: 50%;
   transform: translateY(-50%);
-  left: 24px;
+  left: 30px;
 }
 .task .task__container .check-box {
   margin-right: 16px;
   display: inline;
   float: left;
 }
-.task .task__container .check-box button {
+.task .task__container .check-box input {
+  outline: none;
   height: 25px;
   width: 25px;
-  border: 1px solid #C4C4C4;
 }
-.task .task__container .check-box button:hover {
-  border: 1px solid black;
+.task .task__container .task__name__wrapper {
+  display: inline;
 }
 
 .add-task__button .add-task__container {
@@ -566,4 +565,57 @@ template {
  */
 [hidden] {
   display: none;
+}
+
+#add-task__form {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  transition: opacity 500ms;
+  display: none;
+  z-index: 2;
+}
+#add-task__form .add-task__form__container {
+  position: absolute;
+  width: 70%;
+  height: 85%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  background-color: #f0f0f0;
+  text-align: center;
+}
+#add-task__form .add-task__form__container .exit-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
+}
+#add-task__form .add-task__form__container .exit-button:hover {
+  color: grey;
+}
+#add-task__form .add-task__form__container input, #add-task__form .add-task__form__container .textarea {
+  padding: 5px;
+  margin-bottom: 15px;
+  border: none;
+  margin-top: 10px;
+}
+#add-task__form .add-task__form__container .save-task {
+  outline: none;
+  margin-top: 10px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+#add-task__form .add-task__form__container .save-task:hover {
+  border-color: white;
+  background-color: white;
 }
