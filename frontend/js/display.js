@@ -47,7 +47,7 @@ $(function(){
     window.setInterval(updateTime, 10000);
     $("#greeting").html(greeting());
 
-    $(".check-box input").click(function() {
+    $(".check-box").click(function() {
         if ($(this).is(":checked")) {
             console.log(this.data('data'));    
         } 

@@ -1,59 +1,60 @@
-.task {
-    width: 99.5%;
-    margin: 0.25%;
-    height: 104px;
-    border: 1px solid #C4C4C4;
-    border-radius: 20px;
-    box-sizing: border-box;
+    .task {
+        width: 99.5%;
+        margin: 0.25%;
+        height: 104px;
+        border: 1px solid #C4C4C4;
+        border-radius: 20px;
+        box-sizing: border-box;
 
-    &:hover {
-        border: 1px solid black;
-    }
+        &:hover {
+            border: 1px solid black;
+        }
 
-    .task__container {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 30px;
+        .task__container {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 30px;
 
-        .check-box {
-            margin-right: 16px;
-            display: inline;
-            float: left;
-            input {
+            .check-box {
+                float: left;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                margin-right: 16px;
                 outline: none;
-                height: 25px;
-                width: 25px;
-                
+
+            }
+            .task__name__wrapper {
+                .task__name {
+                    margin: 0; 
+                    display: inline;
+                }
             }
         }
-        .task__name__wrapper {
-            display: inline;
-        }
     }
-}
 
-.add-task__button {
-    .add-task__container {
-        position: relative;
-        left: 30px;
-        width: 8em;
-        top: 50%;
-        transform: translateY(-50%);     
-        .fa-plus{
-            color: $primary-color;
-            font-size: 24px;
-            padding-right: 8px;
-            display: inline;
-        }
-        h2 {
-            color: $primary-color;
-            display: inline;
-        }
-        &:hover {
-            .fa-plus, h2 {
-                color: $secondary-color;
-            }    
+    .add-task__button {
+        .add-task__container {
+            position: relative;
+            left: 30px;
+            width: 8em;
+            top: 50%;
+            transform: translateY(-50%);     
+            .fa-plus{
+                color: $primary-color;
+                font-size: 24px;
+                padding-right: 8px;
+                display: inline;
+            }
+            h2 {
+                color: $primary-color;
+                display: inline;
+            }
+            &:hover {
+                .fa-plus, h2 {
+                    color: $secondary-color;
+                }    
+            }
         }
     }
-}

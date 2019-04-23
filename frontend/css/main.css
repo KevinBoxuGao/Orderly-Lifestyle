@@ -194,16 +194,15 @@ h5 {
   left: 30px;
 }
 .task .task__container .check-box {
-  margin-right: 16px;
-  display: inline;
   float: left;
-}
-.task .task__container .check-box input {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 16px;
   outline: none;
-  height: 25px;
-  width: 25px;
 }
-.task .task__container .task__name__wrapper {
+.task .task__container .task__name__wrapper .task__name {
+  margin: 0;
   display: inline;
 }
 
@@ -226,6 +225,59 @@ h5 {
 }
 .add-task__button .add-task__container:hover .fa-plus, .add-task__button .add-task__container:hover h2 {
   color: #247EE9;
+}
+
+#add-task__form {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  transition: opacity 500ms;
+  display: none;
+  z-index: 2;
+}
+#add-task__form .add-task__form__container {
+  position: absolute;
+  width: 70%;
+  height: 85%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  background-color: #f0f0f0;
+  text-align: center;
+}
+#add-task__form .add-task__form__container .exit-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
+}
+#add-task__form .add-task__form__container .exit-button:hover {
+  color: grey;
+}
+#add-task__form .add-task__form__container input, #add-task__form .add-task__form__container .textarea {
+  padding: 5px;
+  margin-bottom: 15px;
+  border: none;
+  margin-top: 10px;
+}
+#add-task__form .add-task__form__container .save-task {
+  outline: none;
+  margin-top: 10px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+#add-task__form .add-task__form__container .save-task:hover {
+  border-color: white;
+  background-color: white;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -567,55 +619,41 @@ template {
   display: none;
 }
 
-#add-task__form {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  opacity: 1;
-  transition: opacity 500ms;
-  display: none;
-  z-index: 2;
-}
-#add-task__form .add-task__form__container {
+input[type=checkbox].css-checkbox {
   position: absolute;
-  width: 70%;
-  height: 85%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 30px;
-  background-color: #f0f0f0;
-  text-align: center;
+  z-index: -1000;
+  left: -1000px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
 }
-#add-task__form .add-task__form__container .exit-button {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 30px;
-  text-decoration: none;
-  color: black;
+
+input[type=checkbox].css-checkbox + label.css-label {
+  padding-left: 55px;
+  height: 50px;
+  display: inline-block;
+  line-height: 50px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  font-size: 24px;
+  vertical-align: middle;
+  cursor: pointer;
 }
-#add-task__form .add-task__form__container .exit-button:hover {
-  color: grey;
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+  background-position: 0 -50px;
 }
-#add-task__form .add-task__form__container input, #add-task__form .add-task__form__container .textarea {
-  padding: 5px;
-  margin-bottom: 15px;
-  border: none;
-  margin-top: 10px;
-}
-#add-task__form .add-task__form__container .save-task {
-  outline: none;
-  margin-top: 10px;
-  padding: 5px;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-#add-task__form .add-task__form__container .save-task:hover {
-  border-color: white;
-  background-color: white;
+
+label.css-label {
+  background-image: url(http://csscheckbox.com/checkboxes/u/csscheckbox_6a85234bd18e936e19750515adec25ca.png);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

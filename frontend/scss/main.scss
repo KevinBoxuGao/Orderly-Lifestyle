@@ -14,11 +14,12 @@
 @import 'layout/header';
 @import 'layout/sidebar';
 @import 'layout/tasks';
-
+@import 'layout/add-task-form';
 
 // 5. External stylesheets
 @import 'vendor/normalize';
-@import 'layout/add-task-form';
+@import 'vendor/css-checkbox';
+
 // 6. Page-specific styles
 
 // 7. Themes
