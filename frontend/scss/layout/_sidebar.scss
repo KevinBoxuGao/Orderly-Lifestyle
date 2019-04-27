@@ -2,7 +2,7 @@
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     right: 0;
     background-color: rgb(240, 240, 240);
@@ -40,22 +40,23 @@
     }
 
     h1 {
-        font-size: 30px;
+        font-size: 36px;
         font-weight: bold;
         text-align: center;
     }
     
     p{
         padding: 5px;
-        font-size: 15px;
+        font-size: 18px;
     }
 
     div {
         background-color: white;
         padding: 10px;
-        margin: 10px 0px;
-        width: 100%;
+        margin: 10px;
     }
+
+
 
 }
 

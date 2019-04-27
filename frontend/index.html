@@ -18,7 +18,7 @@
         <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
         
         <script src="js/fireBase.js"></script>
-        <!--script src="js/main.js"></script-->
+        <script src="js/main.js"></script>
         <script src="js/display.js"></script>
     </head>
 
@@ -29,25 +29,35 @@
             </div>
 
             <div id="header">
-                <h1 id="greeting">Good Morning, What Will Your Day Look Like?</h1>
+                <h1 id="greeting" class="one-line">Good Morning, What Will Your Day Look Like?</h1>
                 <h2 id="date"></h2>  
                 <div id="header__buttons">
-                    <button id="header__buttons__settings" onclick="openNav()"><i class="fas fa-cog"></i></button>
+                    <button id="header__buttons__settings" onclick="populateNavWithSettings()"><i class="fas fa-cog"></i></button>
                 </div>
             </div>
 
             <div class="tasks__container">
                 
                 <div class="tasks">
-
                     <div class="task">
+                        <a class="clickable-area"></a>
                         <div class="task__container">
-                            <input type="checkbox" name="checkboxG5" id="checkboxG5" class="css-checkbox" checked="checked">
-                            <label for="checkboxG5" class="css-label">Euclid</label>
+                            <input type="checkbox" id="task1" class="css-checkbox">
+                            <label for="task1" class="css-label" date="April 6, 2019" location="Sjam Caf" notes="Be there by 8:15">Euclid</label>
                         </div>
                     </div>
-                
                 </div>
+
+                <div class="tasks">
+                    <div class="task">
+                        <a class="clickable-area"></a>
+                        <div class="task__container">
+                            <input type="checkbox" id="task2" class="css-checkbox">
+                            <label for="task2" class="css-label" date="April 11, 2019" location="Sjam" notes="Be there by 8:30">Galois</label>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="task add-task__button" onclick="openAddTaskForm()">
                     <div class="add-task__container">    
                         <i class="fas fa-plus"></i>
@@ -74,7 +84,7 @@
                 <h1>Extra Notes:</h1>
                 <textarea id="notes" placeholder="Notes" rows="4" cols="30"></textarea>
                 <br>
-                <button class="save-task" onclick="closeAddTaskForm()">Save Changes</button>
+                <button class="save-task" onclick="completeForm()">Save Changes</button>
             </div>
         </div>
     </body>

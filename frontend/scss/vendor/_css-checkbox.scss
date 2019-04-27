@@ -6,12 +6,12 @@ input[type=checkbox].css-checkbox {
 	clip: rect(0 0 0 0);
 	height:1px;
 	width:1px;
-	margin:-1px;
+	margin:1px;
 	padding:0;
 	border:0;
 }
 input[type=checkbox].css-checkbox + label.css-label {
-	padding-left:55px;
+	padding-left:75px;
 	height:50px;
 	display:inline-block;
 	line-height:50px;
@@ -22,6 +22,7 @@ input[type=checkbox].css-checkbox + label.css-label {
 	cursor:pointer;
 }
 input[type=checkbox].css-checkbox:checked + label.css-label {
+	transition: 0.5s;
 	background-position: 0 -50px;
 }
 label.css-label {

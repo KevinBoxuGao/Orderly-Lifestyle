@@ -10,41 +10,35 @@
             border: 1px solid black;
         }
 
+        .clickable-area {
+            display:block; 
+            width:100%; 
+            height:100px; 
+            position:absolute;  
+            left:100px;         
+            z-index: 1;
+        }
+
         .task__container {
             position: relative;
             top: 50%;
             transform: translateY(-50%);
             left: 30px;
 
-            .check-box {
-                float: left;
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                margin-right: 16px;
-                outline: none;
-
-            }
-            .task__name__wrapper {
-                .task__name {
-                    margin: 0; 
-                    display: inline;
-                }
-            }
         }
     }
 
     .add-task__button {
         .add-task__container {
             position: relative;
-            left: 30px;
-            width: 8em;
+            left: 46px;
+            width: 160px;
             top: 50%;
             transform: translateY(-50%);     
             .fa-plus{
                 color: $primary-color;
                 font-size: 24px;
-                padding-right: 8px;
+                padding-right: 34px;
                 display: inline;
             }
             h2 {

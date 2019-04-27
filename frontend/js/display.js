@@ -4,7 +4,7 @@ function greeting() {
     return greeting;
   }
   
-  function time() {
+function time() {
     var d = new Date();
     var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -35,25 +35,12 @@ function greeting() {
         if (i < 10) { i = "0" + i };
         return i;
     }
-  }
+}
   
 function updateTime() {
     var date = time().join(", ")
     $("#date").html(date);
 }
-
-$(function(){
-    updateTime()
-    window.setInterval(updateTime, 10000);
-    $("#greeting").html(greeting());
-
-    $(".check-box").click(function() {
-        if ($(this).is(":checked")) {
-            console.log(this.data('data'));    
-        } 
-    });
-});
-
 
 function openNav() {
     document.getElementById("side-bar").style.width = "300px";
@@ -76,14 +63,10 @@ function closeAddTaskForm() {
 }
 
 let length = 0;
-function signOut() {
+function populateNavWithSettings() {
     var div = document.createElement("DIV");
     var sign = document.createElement("A");
     var text = document.createTextNode("Sign Out");
-
-    document.getElementById("side-bar").style.width = "230px";
-    document.getElementById("header__buttons").style.right = "240px";
-    document.getElementById("header__buttons").style.transition = "0.5s";
 
     sign.appendChild(text);
     div.appendChild(sign);
@@ -91,14 +74,18 @@ function signOut() {
     sign.setAttribute("class", "signout");
     sign.setAttribute("href", "signin.html");
     
+    if ($("#side-bar").width != 0) {
+        openNav();
+    }
+    openNav();
     //remove details of tasks
     if (length == 3) {
         var title = document.getElementById("title");
-        var detail = document.getElementById("details");
-        var inp = document.getElementById("input");
+        var details = document.getElementById("details");
+        var notes = document.getElementById("extraNotes");
         document.getElementById("side-bar").removeChild(title);
-        document.getElementById("side-bar").removeChild(detail);
-        document.getElementById("side-bar").removeChild(inp);
+        document.getElementById("side-bar").removeChild(details);
+        document.getElementById("side-bar").removeChild(notes);
         length = length - 3;
     }
 
@@ -110,52 +97,36 @@ function signOut() {
     console.log(length);
 }
 
-function populateNav() {
+function populateNavWithTask(name, date, location, notes) {
     //title
-    var div1 = document.createElement("DIV");
-    var h = document.createElement("H1");
-    var text1 = document.createTextNode("Extra Details:");
+    var titleDiv = document.createElement("DIV");
+    var titleH = document.createElement("H1");
+    var titleContent = document.createTextNode(name);
+    //details
+    var detailsDiv = document.createElement("DIV");
+    var locationP = document.createElement("P");
+    var locationContent = document.createTextNode("Location: " + location);
+    var dateP = document.createElement("P");
+    var dateContent = document.createTextNode("Date: "+date);
     //notes
-    var div2 = document.createElement("DIV");
-    var p = document.createElement("P");
-    var text2 = document.createTextNode("Location: SJAM");
-
-    var p2 = document.createElement("P");
-    var Text2 = document.createTextNode("Time: April 10 at 8:30 am");
-    //input
-    var div3 = document.createElement("DIV");
-    var h2 = document.createElement("H2");
-    var text3 = document.createTextNode("Add Notes");
-    var skipLine = document.createElement("BR");
-    var input = document.createElement("TEXTAREA");
-    var text4 = document.createTextNode("Save");
-    var submit = document.createElement("BUTTON");
-
-    document.getElementById("side-bar").style.width = "230px";
-    document.getElementById("header__buttons").style.right = "240px";
-    document.getElementById("header__buttons").style.transition = "0.5s";
-
+    var extraNotesDiv = document.createElement("DIV");
+    var extraNotesP = document.createElement("P");
+    var extraNotesContent = document.createTextNode(notes);
+    
     //title
-    h.appendChild(text1);
-    div1.appendChild(h);
-    div1.setAttribute("id", "title");
+    titleH.appendChild(titleContent);
+    titleDiv.appendChild(titleH);
+    titleDiv.setAttribute("id", "title");
+    //details
+    locationP.appendChild(locationContent);
+    dateP.appendChild(dateContent);
+    detailsDiv.appendChild(locationP);
+    detailsDiv.appendChild(dateP);
+    detailsDiv.setAttribute("id", "details");
     //notes
-    p.appendChild(text2);
-    p2.appendChild(Text2);
-    div2.appendChild(p);
-    div2.appendChild(p2);
-    div2.setAttribute("id", "details");
-    //input
-    h2.appendChild(text3);
-    div3.appendChild(h2);
-    div3.appendChild(skipLine);
-    input.setAttribute("placeholder", "Notes");
-    input.setAttribute("rows", "4");
-    input.setAttribute("cols", "27");
-    div3.appendChild(input);
-    submit.appendChild(text4);
-    div3.appendChild(submit);
-    div3.setAttribute("id", "input");
+    extraNotesP.appendChild(extraNotesContent);
+    extraNotesDiv.appendChild(extraNotesP);
+    extraNotesDiv.setAttribute("id", "extraNotes");
 
     //remove sign out link
     if (length == 1) {
@@ -166,21 +137,54 @@ function populateNav() {
     //remove details of other tasks
     else if (length == 3) {
         var title = document.getElementById("title");
-        var detail = document.getElementById("details");
-        var inp = document.getElementById("input");
+        var details = document.getElementById("details");
+        var extraNotes = document.getElementById("extraNotes");
         document.getElementById("side-bar").removeChild(title);
-        document.getElementById("side-bar").removeChild(detail);
-        document.getElementById("side-bar").removeChild(inp);
+        document.getElementById("side-bar").removeChild(details);
+        document.getElementById("side-bar").removeChild(extraNotes);
         length = length - 3;
     }
 
     if (length == 0) {
-        document.getElementById("side-bar").appendChild(div1);
-        document.getElementById("side-bar").appendChild(div2);
-        document.getElementById("side-bar").appendChild(div3);
+        document.getElementById("side-bar").appendChild(titleDiv);
+        document.getElementById("side-bar").appendChild(detailsDiv);
+        document.getElementById("side-bar").appendChild(extraNotesDiv);
         length = length + 3;
     }
 
-    console.log(length);
 }
 
+$(function(){
+    updateTime();
+    window.setInterval(updateTime, 10000);
+    $("#greeting").html(greeting());
+
+    //event when checkbox is checked
+    $(".css-checkbox").click(function() {
+        if ($(this).is(":checked")) {
+            console.log($("[for=" + this.id + "]").text());
+            console.log($("[for=" + this.id + "]").attr("date"));
+            console.log($("[for=" + this.id + "]").attr("location"));    
+            console.log($("[for=" + this.id + "]").attr("notes"));
+        } 
+    });
+
+    //event when task is clicked to show extra details
+    $(".tasks .task .clickable-area").click(function() {
+        var taskNumber = $(this).next().find("input").attr('id');
+        var name = $("[for=" + taskNumber + "]").text();
+        var date = $("[for=" + taskNumber + "]").attr("date");
+        var location = $("[for=" + taskNumber + "]").attr("location");    
+        var notes = $("[for=" + taskNumber + "]").attr("notes");
+        openNav();
+        populateNavWithTask(name, date, location, notes);
+    });
+
+    //change greeting on different screen size
+    $(window).resize(function(){     
+        if ($('html').width() <= 700){
+            $("#greeting").html("My Day");
+        } 
+    });
+
+});

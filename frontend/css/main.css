@@ -98,6 +98,7 @@ h5 {
 }
 #header #greeting {
   position: absolute;
+  overflow: hidden;
   left: 32px;
   top: 57px;
 }
@@ -116,7 +117,7 @@ h5 {
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   right: 0;
   background-color: #f0f0f0;
@@ -152,19 +153,18 @@ h5 {
   color: #7c7c7c;
 }
 #side-bar h1 {
-  font-size: 30px;
+  font-size: 36px;
   font-weight: bold;
   text-align: center;
 }
 #side-bar p {
   padding: 5px;
-  font-size: 15px;
+  font-size: 18px;
 }
 #side-bar div {
   background-color: white;
   padding: 10px;
-  margin: 10px 0px;
-  width: 100%;
+  margin: 10px;
 }
 
 @media screen and (max-height: 450px) {
@@ -187,36 +187,32 @@ h5 {
 .task:hover {
   border: 1px solid black;
 }
+.task .clickable-area {
+  display: block;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  left: 100px;
+  z-index: 1;
+}
 .task .task__container {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
   left: 30px;
 }
-.task .task__container .check-box {
-  float: left;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-right: 16px;
-  outline: none;
-}
-.task .task__container .task__name__wrapper .task__name {
-  margin: 0;
-  display: inline;
-}
 
 .add-task__button .add-task__container {
   position: relative;
-  left: 30px;
-  width: 8em;
+  left: 46px;
+  width: 160px;
   top: 50%;
   transform: translateY(-50%);
 }
 .add-task__button .add-task__container .fa-plus {
   color: #1400FF;
   font-size: 24px;
-  padding-right: 8px;
+  padding-right: 34px;
   display: inline;
 }
 .add-task__button .add-task__container h2 {
@@ -627,13 +623,13 @@ input[type=checkbox].css-checkbox {
   clip: rect(0 0 0 0);
   height: 1px;
   width: 1px;
-  margin: -1px;
+  margin: 1px;
   padding: 0;
   border: 0;
 }
 
 input[type=checkbox].css-checkbox + label.css-label {
-  padding-left: 55px;
+  padding-left: 75px;
   height: 50px;
   display: inline-block;
   line-height: 50px;
@@ -645,6 +641,7 @@ input[type=checkbox].css-checkbox + label.css-label {
 }
 
 input[type=checkbox].css-checkbox:checked + label.css-label {
+  transition: 0.5s;
   background-position: 0 -50px;
 }
 

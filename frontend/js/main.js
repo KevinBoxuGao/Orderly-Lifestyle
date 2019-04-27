@@ -1,5 +1,5 @@
 $(function(){
-  var backendHostUrl = "https://backend-dot-orderly-lifestyle.appspot.com";
+  var backendHostUrl = "http://localhost:8081";
   
   //login
   var userIdToken = null;
@@ -42,22 +42,19 @@ $(function(){
       }
 
     }).then(function(data){
-      $('.actualTasks').empty();
+      $('.tasks').empty();
       
-      data.forEach(function(task){
-        $('.actualTasks').append(
-          $('<div/>', {'class': 'element'}).append(
-            $('<div/>', {'class': 'check'}).append(
-              $('<button/>', {'class': 'button'}).append(
-                $("<input>", {'type': 'checkbox', 'class': 'check-box', 'id':'delete-task'}))), 
-              
+      data.forEach(function(task, taskNumber){
+        $('.tasks').append(
+          $('<div/>', {'class': 'task'}).append(
+            $('a/>', {'class': 'clickable-area'}), 
             $('<div/>', {'class': 'task'}).append(
-              $('<div/>', {'class': 'content'}).append(
-                $('<h2/>', {'class':'name', 'id':'task-content'}).text(task)))
+                $("<input>", {'type': 'checkbox', 'id': 'task'+taskNumber.toString(), 'class':'css-checkbox'}),
+                $('<label/>', {'class': 'css-label', 'date': task[1], 'location': task[2], 'notes': task[3]}).text(task[0])
+            )
           )
         )
       }); 
-
     });
   }
 
