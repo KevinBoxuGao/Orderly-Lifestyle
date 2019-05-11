@@ -1,18 +1,16 @@
-@import "../abstracts/variables.scss";
-
 body {
-    font-family: $text-font-stack;
+    font-family: $text-font;
     font-weight: 400;
     color: black;
   }
 
 p {
-    font-family: $text-font-stack;
+    font-family: $text-font;
     margin-bottom: 1.25em;
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: $text-font-stack;
+    font-family: $text-font;
     font-weight: 400;
     color: black;
   }

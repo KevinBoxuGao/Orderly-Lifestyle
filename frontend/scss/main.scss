@@ -1,22 +1,24 @@
 // 1. Configuration and helpers
 @import 'abstracts/variables';
-@import 'abstracts/functions';
 @import 'abstracts/mixins';
 
 // 2. Base stuff 
 @import 'base/base';
-@import 'base/fonts';
 @import 'base/typography';
 @import 'base/helpers';
 
 // 3. Components
 @import 'components/button';
-@import 'components/task';
 
 // 4. Layout-related sections
 @import 'layout/header';
-@import 'layout/accessibility.scss';
+@import 'layout/sidebar';
 @import 'layout/tasks';
+@import 'layout/add-task-form';
+
+// 5. External stylesheets
+@import 'vendor/normalize';
+@import 'vendor/css-checkbox';
 
 // 6. Page-specific styles
 

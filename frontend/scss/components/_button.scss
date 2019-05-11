@@ -1,29 +1,12 @@
-@import "../abstracts/variables";
-.add-task {
-    button {
-        position: relative;
-        left: 24px;
-        top: 35px;
-        .fa-plus{
-            color: $primary-color;
-            font-size: 24px;
-            margin-right: 16px;
-            display: inline;
-        }
-        h2 {
-            color: $primary-color;
-            display: inline;
-        }
-    }
-}
-
-.accessibility {
+#header__buttons {
     button {
         color: white;
         background: $hover-secondary;
         height: 36px;
         font-size: 24px;
         margin: 0px 8px;
+        transition: 0.2s;
+        outline: none;
         i {
             padding: 6px 10px;
         }
@@ -35,5 +18,15 @@
             }
         }
     }
+}
 
+.exit-button {
+    outline: none;
+    position: absolute;
+    text-decoration: none;
+    color: black;
+    font-size: 36px;
+    &:hover {
+        color: grey;    
+    }
 }

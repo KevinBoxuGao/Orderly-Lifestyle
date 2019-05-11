@@ -1,0 +1,67 @@
+#side-bar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    background-color: rgb(240, 240, 240);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    color: black;
+    
+    #side-bar__exit {
+        outline: none;
+        position: absolute;
+        top: 0;
+        right: 24px;
+        font-size: 36px;
+        margin-left: 50px;
+        padding: 8px;
+        text-decoration: none;
+        display: block;
+        color: black;
+        font-weight: bold;
+    }
+
+    #signout {
+        padding: 8px;
+        text-align: center;
+        font-weight: bold;
+        a {
+            color: black;
+            font-size: 25px;
+            text-decoration: none;    
+            &:hover {
+                color: #7c7c7c;
+            }
+        }
+    }
+
+    h1 {
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    p{
+        padding: 5px;
+        font-size: 18px;
+    }
+
+    div {
+        background-color: white;
+        padding: 10px;
+        margin: 10px;
+    }
+
+
+
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  

@@ -5,65 +5,82 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>To-Do-List</title>
+        <title>Orderly-Lifestyle</title>
         
         <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="css/secondary.css">
+   
+
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-        <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+        
         <script src="js/fireBase.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/display.js"></script>
+
     </head>
 
     <body>
         <div class="container">
-            <div id="mySidenav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div id="side-bar">
+                <a href="javascript:void(0)" id="side-bar__exit" class="exit-button" onclick="closeNav()">&times;</a>
             </div>
 
-            <div class="header">
-                <h1 class="greeting">Good Morning, What Will Your Day Look Like?</h1>
-                <h2 class="date"></h2>  
-                <div id="buttons" class="accessibility">
-                    <button class="settings" onclick="signOut()"><i class="fas fa-cog"></i></button>
+            <div id="header">
+                <h1 id="greeting" class="one-line">Good Morning, What Will Your Day Look Like?</h1>
+                <h2 id="header__date"></h2>  
+                <div id="header__buttons">
+                    <button id="header__buttons__settings" onclick="populateNavWithSettings()"><i class="fas fa-cog"></i></button>
                 </div>
             </div>
 
-            <div class="tasks">
-                <div class="actualTasks">
+            <div class="tasks__inner">
+                <div class="tasks">
+                    <div class="task">
+                        <a class="clickable-area"></a>
+                        <div class="task__container">
+                            <input type="checkbox" id="task1" class="css-checkbox">
+                            <label for="task1" class="css-label" date="April 6, 2019" location="Sjam Caf" notes="Be there by 8:15">Euclid</label>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <a class="clickable-area"></a>
+                        <div class="task__container">
+                            <input type="checkbox" id="task2" class="css-checkbox">
+                            <label for="task2" class="css-label" date="April 11, 2019" location="Sjam" notes="Be there by 8:30">Galois</label>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="task add-task" onclick="on()">
-                    <button class="button">
+                <div class="task add-task__button" onclick="openAddTaskForm()">
+                    <div class="add-task__container">    
                         <i class="fas fa-plus"></i>
                         <h2>Add Task</h2>
-                    </button>
+                    </div>
                 </div>
+
             </div>
-       
+
         </div>
-        <div id="overlay">
-            <div class="addition">
-                <a href="javascript:void(0)" class="closebtn" onclick="off()">&times;</a>
-                <h1>Name:</h1>
-                <input placeholder="Name" id="task">
+
+        <div id="add-task__form">
+            <div class="add-task__form__container">
+                <a href="javascript:void(0)" id="add-task__form__button" class="exit-button" onclick="closeAddTaskForm()">&times;</a>
+                <h1>Task:</h1>
+                <input placeholder="Task" id="task">
                 <br>
                 <h1>Date:</h1>
-                <input placeholder="Date" id="Date">
+                <input placeholder="Date" id="date">
                 <br>
                 <h1>Location:</h1>
                 <input placeholder="Location" id="location">
                 <br>
                 <h1>Extra Notes:</h1>
-                <textarea id="notes" placeholder="Notes" rows="4" cols="30"></textarea>
+                <textarea id="note" placeholder="Notes" rows="4" cols="30"></textarea>
                 <br>
-                <button id="save-task" class="save" onclick="off()">Save Changes</button>
+                <button class="save-task">Save Changes</button>
             </div>
-    </div>
+        </div>
     </body>
 </html>
     

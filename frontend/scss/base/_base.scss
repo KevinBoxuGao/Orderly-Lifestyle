@@ -1,19 +1,22 @@
-* {
-	  padding: 0;
-    margin: 0;
-    transition: 0.2s;
-}
-
 html, body {
     height: 100%;
     width: 100%;
+    
 }
 
 html {
+    box-sizing: border-box;
     scroll-behavior: smooth;
-}
+  }
 
 button {
     background: none;
     border: none;
+    transition: 0.2;
+    outline: none;
 }
+
+a {
+    text-decoration: none;
+}
+ 
