@@ -53,6 +53,7 @@ def addtask():
 
     json = request.get_json()
     data = query_database(claims['sub'])
+
     data = data[0]
 
     task = Account(

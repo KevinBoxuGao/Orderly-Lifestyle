@@ -14,12 +14,10 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
         
         <script src="js/fireBase.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/display.js"></script>
+
     </head>
 
     <body>
@@ -30,14 +28,13 @@
 
             <div id="header">
                 <h1 id="greeting" class="one-line">Good Morning, What Will Your Day Look Like?</h1>
-                <h2 id="date"></h2>  
+                <h2 id="header__date"></h2>  
                 <div id="header__buttons">
                     <button id="header__buttons__settings" onclick="populateNavWithSettings()"><i class="fas fa-cog"></i></button>
                 </div>
             </div>
 
-            <div class="tasks__container">
-                
+            <div class="tasks__inner">
                 <div class="tasks">
                     <div class="task">
                         <a class="clickable-area"></a>
@@ -46,9 +43,6 @@
                             <label for="task1" class="css-label" date="April 6, 2019" location="Sjam Caf" notes="Be there by 8:15">Euclid</label>
                         </div>
                     </div>
-                </div>
-
-                <div class="tasks">
                     <div class="task">
                         <a class="clickable-area"></a>
                         <div class="task__container">
@@ -82,9 +76,9 @@
                 <input placeholder="Location" id="location">
                 <br>
                 <h1>Extra Notes:</h1>
-                <textarea id="notes" placeholder="Notes" rows="4" cols="30"></textarea>
+                <textarea id="note" placeholder="Notes" rows="4" cols="30"></textarea>
                 <br>
-                <button class="save-task" onclick="completeForm()">Save Changes</button>
+                <button class="save-task">Save Changes</button>
             </div>
         </div>
     </body>

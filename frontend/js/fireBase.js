@@ -6,6 +6,6 @@ $(function(){
         projectId: "orderly-lifestyle",
         storageBucket: "orderly-lifestyle.appspot.com",
         messagingSenderId: "1056442261794"
-      };
-      firebase.initializeApp(config);    
+    };
+    firebase.initializeApp(config);    
 });  
