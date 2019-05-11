@@ -72,7 +72,7 @@ function populateNavWithSettings() {
     div.appendChild(sign);
     div.setAttribute("id", "signout");
     sign.setAttribute("class", "signout");
-    sign.setAttribute("href", "signin.html");
+    sign.setAttribute("onclick", "logOut()");
     
     if ($("#side-bar").width != 0) {
         openNav();
@@ -152,7 +152,7 @@ function populateNavWithTask(name, date, location, notes) {
 }
 
 $(function(){
-    var backendHostUrl = "http://localhost:8081";
+    var backendHostUrl = "https://backend-dot-orderly-lifestyle.appspot.com";
     //login
     var userIdToken = null;
     function configureFirebaseLogin() {  
@@ -171,16 +171,6 @@ $(function(){
         });
     }  
     
-    //sign out
-    function logOut(){
-        firebase.auth().signOut().then(function() {
-            console.log("Sign out successful");
-            window.location.replace("login.html");
-        }, function(error) {
-            console.log(error);
-        });
-    }
-
     //get backend data
     function fetchTasks() {
         $.ajax(backendHostUrl + '/tasks', { 
@@ -277,3 +267,13 @@ $(function(){
     window.setInterval(updateTime, 10000);
     configureFirebaseLogin();
 });
+
+//sign out
+function logOut(){
+    firebase.auth().signOut().then(function() {
+        console.log("Sign out successful");
+        window.location.replace("signin.html");
+    }, function(error) {
+        console.log(error);
+    });
+}
