@@ -200,6 +200,7 @@ $(function(){
     saveTaskBtn.click(function(event) {
         event.preventDefault();
 
+        closeNav();
         var taskField = $('#task');
         var task = taskField.val();
 
