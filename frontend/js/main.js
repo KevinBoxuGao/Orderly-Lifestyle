@@ -162,7 +162,7 @@ $(function(){
                 var welcomeName = name ? name : user.email;
                 user.getIdToken().then(function(idToken) {
                     userIdToken = idToken;
-                    register();
+                    fetchTasks();
                 });
             } else {
                 userIdToken = null;
@@ -183,7 +183,7 @@ $(function(){
 
     //get backend data
     function fetchTasks() {
-        $.ajax(backendHostUrl + '/accountdata', { 
+        $.ajax(backendHostUrl + '/tasks', { 
             // Set header for the XMLHttpRequest to get data from the web server associated with userIdToken 
             headers: {
               'Authorization': 'Bearer ' + userIdToken,
@@ -192,34 +192,19 @@ $(function(){
 
         }).then(function(data){
             $('.tasks').empty();
-            console.log(data);
             data.forEach(function(task, taskNumber){
                 $('.tasks').append(
                     $('<div/>', {'class': 'task'}).append(
                     $('<a/>', {'class': 'clickable-area'}), 
                     $('<div/>', {'class': 'task__container'}).append(
                         $("<input>", {'type': 'checkbox', 'id': 'task'+taskNumber.toString(), 'class':'css-checkbox'}),
-                        $('<label/>', {'for': 'task'+taskNumber.toString(), 'class': 'css-label', 'date': task[1], 'location': task[2], 'notes': task[3]}).text(task[0]))
+                        $('<label/>', {'for': 'task'+taskNumber.toString(), 'id': task['id'], 'class': 'css-label', 'date': task['date'], 'location': task['location'], 'notes': task['note']}).text(task['task']))
                     )
                 )
             }); 
         });
     }
 
-    function register() {
-        $.ajax(backendHostUrl + '/register', {
-            headers: {
-                'Authorization': 'Bearer ' + userIdToken,
-                'Access-Control-Allow-Origin': '*'
-            },
-            method: 'POST',
-            data: JSON.stringify({'empty' : 'header'}),
-            contentType : 'application/json'
-        }).then(function(){
-            fetchTasks();
-        });  
-    }
-  
     //add task
     var saveTaskBtn = $('.save-task')
     saveTaskBtn.click(function(event) {
@@ -236,9 +221,9 @@ $(function(){
 
         var noteField = $('#note');
         var note = noteField.val();
-        
-        //send task to backend, store in databse with userIdToken
-        $.ajax(backendHostUrl + '/accountdata', {
+    
+        //send task to backend, store in database with userIdToken
+        $.ajax(backendHostUrl + '/tasks', {
             headers: {
                 'Authorization': 'Bearer ' + userIdToken,
                 'Access-Control-Allow-Origin': '*'
@@ -253,20 +238,16 @@ $(function(){
 
     //delete task
     $(document).on('click', ".css-checkbox", function () {
-        console.log("check");
         if ($(this).is(":checked")) {
-            var task = $("[for=" + this.id + "]").text();
-            var date = $("[for=" + this.id + "]").attr("date");
-            var location = $("[for=" + this.id + "]").attr("location");    
-            var note = $("[for=" + this.id + "]").attr("notes");
+            var id = $("[for=" + this.id + "]").attr("id");
             //send task information to backend for deleting
-            $.ajax(backendHostUrl + '/accountdata', {
+            $.ajax(backendHostUrl + '/removetasks', {
                 headers: {
                     'Authorization': 'Bearer ' + userIdToken,
                     'Access-Control-Allow-Origin': '*'
                 },
                 method: 'POST',
-                data: JSON.stringify({'task' : task, 'date' : date, 'location': location, 'note' : note}),
+                data: JSON.stringify({'id': id}),
                 contentType : 'application/json'
             }).then(function(){
                 fetchTasks();
@@ -276,7 +257,6 @@ $(function(){
 
     //event when task is clicked to show extra details
     $(document).on('click', ".tasks .task .clickable-area", function () {
-        console.log('task');
         var taskNumber = $(this).next().find("input").attr('id');
         var name = $("[for=" + taskNumber + "]").text();
         var date = $("[for=" + taskNumber + "]").attr("date");

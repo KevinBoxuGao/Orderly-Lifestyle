@@ -12,39 +12,43 @@ HTTP_REQUEST = google.auth.transport.requests.Request()
 app = Flask(__name__)
 flask_cors.CORS(app)
 
-class Account(ndb.Model):
-    email = ndb.StringProperty()
-    tasks = ndb.StringProperty(repeated=True)
+class Task(ndb.Model):
+    id = ndb.StringProperty()
+    task = ndb.StringProperty()
+    date = ndb.StringProperty()
+    location = ndb.StringProperty()
+    note = ndb.StringProperty()
     created = ndb.DateTimeProperty(auto_now_add=True)
 
 def query_database(user_id):
-    ancestor_key = ndb.Key(Account, user_id)
-    query = Account.query(ancestor=ancestor_key).order(-Account.created)
-    accountData = query.fetch()
+    ancestor_key = ndb.Key(Task, user_id)
+    query = Task.query(ancestor=ancestor_key).order(-Task.created)
+    tasks = query.fetch()
 
     data = []
-    if len(accountData) > 0:
-        accountData = accountData[0]
+
+    for task in tasks:
         data.append({
-            'key' : accountData.key,
-            'tasks' : accountData.tasks,
-            'created' : accountData.created
+            'id': str(task.key),
+            'task': task.task,
+            'date': task.date,
+            'location': task.location,
+            'note': task.note
         })
 
     return data
 
-@app.route('/accountdata', methods=['GET'])
+@app.route('/tasks', methods=['GET'])
 def list_tasks():
     id_token = request.headers['Authorization'].split(' ').pop()
     claims = google.oauth2.id_token.verify_firebase_token(id_token, HTTP_REQUEST)
     if not claims:
         return 'Unauthorized', 401
     
-    tasks = query_database(claims['sub'])[0]['tasks']
-
+    tasks = query_database(claims['sub'])
     return jsonify(tasks)
 
-@app.route('/accountdata', methods=['POST', 'PUT'])
+@app.route('/tasks', methods=['POST', 'PUT'])
 def addtask():
     id_token = request.headers['Authorization'].split(' ').pop()
     claims = google.oauth2.id_token.verify_firebase_token(id_token, HTTP_REQUEST)
@@ -52,36 +56,37 @@ def addtask():
         return 'Unauthorized', 401        
 
     json = request.get_json()
-    data = query_database(claims['sub'])
 
-    data = data[0]
-
-    task = Account(
-        parent = ndb.Key(Account, claims['sub']),
-        tasks=data['tasks']+[json['task']]
+    task = Task(
+        parent = ndb.Key(Task, claims['sub']),
+        task = json['task'],
+        date = json['date'],
+        location = json['location'],
+        note = json['note']
     )
-
     task.put()
-
     return 'OK', 200
 
-@app.route('/register', methods=['POST', 'PUT'])
-def register():
-
-    # Verify Firebase auth.
+@app.route('/removetasks', methods=['POST', 'PUT'])
+def deletetask():
     id_token = request.headers['Authorization'].split(' ').pop()
     claims = google.oauth2.id_token.verify_firebase_token(id_token, HTTP_REQUEST)
     if not claims:
-        return 'Unauthorized', 401
-    data = query_database(claims['sub'])
-    if len(data) == 0:
-        accountData = Account(
-            parent=ndb.Key(Account, claims['sub']),
-            email = claims.get('name', claims.get('email', 'Unknown')),
-            tasks=[])
+        return 'Unauthorized', 401        
 
-        accountData.put()
+    json = request.get_json()
+    id = json['id']
+    idContents = id[4:-1]
+    args = idContents.split(', ')
 
+    args = idContents.split(', ')
+    args[3] = int(args[3])
+
+    for i in range(len(args)-1):
+        args[i] = args[i].strip("'")
+
+    ndb.Key(*args).delete()
+    
     return 'OK', 200
 
 @app.errorhandler(500)
