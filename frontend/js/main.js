@@ -166,7 +166,7 @@ $(function(){
                 });
             } else {
                 userIdToken = null;
-                window.location.replace("login.html");
+                window.location.replace("signin.html");
             }
         });
     }  
@@ -200,7 +200,7 @@ $(function(){
     saveTaskBtn.click(function(event) {
         event.preventDefault();
 
-        closeNav();
+        closeAddTaskForm()
         var taskField = $('#task');
         var task = taskField.val();
 
