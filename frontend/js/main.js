@@ -1,5 +1,5 @@
 function greeting() {
-    var greetings = ["Good Morning, What Will Your Day Look Like?", "Feeling Tired? Don't Stop Now.", "Today Is A New Chance, Use It."];
+    var greetings = ["What Will Your Day Look Like?", "Feeling Tired? Don't Stop Now.", "Today Is A New Chance, Use It."];
     greeting = greetings[Math.floor(Math.random() * greetings.length)];
     return greeting;
   }
@@ -155,7 +155,7 @@ $(function(){
     var backendHostUrl = "https://backend-dot-orderly-lifestyle.appspot.com";
     //login
     var userIdToken = null;
-    function configureFirebaseLogin() {  
+    /* function configureFirebaseLogin() {  
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 var name = user.displayName;
@@ -193,7 +193,7 @@ $(function(){
                 )
             }); 
         });
-    }
+    }*/
 
     //add task
     var saveTaskBtn = $('.save-task')
@@ -259,13 +259,8 @@ $(function(){
 
     updateTime();
     $("#greeting").html(greeting());
-    //change greeting on different screen size
-    $(window).resize(function(){     
-        if ($('html').width() <= 700){
-            $("#greeting").html("My Day");
-        } 
-    });
     window.setInterval(updateTime, 10000);
+
     configureFirebaseLogin();
 });
 
