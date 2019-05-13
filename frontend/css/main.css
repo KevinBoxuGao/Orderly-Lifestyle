@@ -264,6 +264,7 @@ h5 {
   left: 50%;
   transform: translateX(-50%);
   margin-top: 4em;
+  min-height: 80%;
 }
 #add-task__form .add-task__form__container .exit-button {
   position: absolute;
@@ -275,6 +276,9 @@ h5 {
 }
 #add-task__form .add-task__form__container .exit-button:hover {
   color: grey;
+}
+#add-task__form .add-task__form__container h1 {
+  padding-top: 20px;
 }
 #add-task__form .add-task__form__container input, #add-task__form .add-task__form__container .textarea {
   position: absolute;
