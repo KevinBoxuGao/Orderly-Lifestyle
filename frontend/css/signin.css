@@ -371,14 +371,14 @@ h5 {
 .navbar {
   overflow: hidden;
   height: 50px;
-  background-color: black;
+  background-color: grey;
   font-size: 25px;
   color: white;
 }
 
 .navbar a {
   float: right;
-  background-color: blue;
+  background-color: grey;
   height: 50px;
   padding: 10px;
   text-align: center;
@@ -404,7 +404,7 @@ img {
 
 footer {
   text-align: center;
-  background-color: rgb(121, 168, 255);
+  background-color: grey;
   padding: 20px;
   color: white;
   font-size: 20px;

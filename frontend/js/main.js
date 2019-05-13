@@ -155,7 +155,7 @@ $(function(){
     var backendHostUrl = "https://backend-dot-orderly-lifestyle.appspot.com";
     //login
     var userIdToken = null;
-    /* function configureFirebaseLogin() {  
+    function configureFirebaseLogin() {  
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 var name = user.displayName;
@@ -193,7 +193,7 @@ $(function(){
                 )
             }); 
         });
-    }*/
+    }
 
     //add task
     var saveTaskBtn = $('.save-task')
